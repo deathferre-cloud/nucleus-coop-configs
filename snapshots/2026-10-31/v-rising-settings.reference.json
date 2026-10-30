@@ -1,0 +1,22 @@
+{
+  "referenceOnly": true,
+  "doNotImportAsCompleteClientSettings": true,
+  "Interface": {
+    "Language": "russian"
+  },
+  "GraphicSettings": {
+    "WindowMode": 3,
+    "Resolution": {
+      "x": 1920,
+      "y": 1080
+    }
+  },
+  "GameClient": {
+    "AnalyticsEnabled": false,
+    "HasSeenCinematic": true
+  },
+  "Sound": {
+    "Driver": "SELECT_OWN_SOUND_CARD_IN_EACH_GAME"
+  },
+  "omitted": "Personal data and remaining original settings. VRisingSettings preserves them locally rather than replacing them with this partial reference."
+}

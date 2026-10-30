@@ -1,31 +1,31 @@
 {
-  "status": "runtime_testing_partial_results_documented",
+  "status": "configured_and_runtime_verified_on_original_setup",
   "steamAppId": "1604030",
   "testedBuild": "v1.1.13.0-r99712-b17",
   "handlerHubVersion": 6,
   "handlerHubId": "7cS2MybpctbnuntvQ",
   "url": "https://hub.splitscreen.me/handler/7cS2MybpctbnuntvQ",
-  "planned": "Full verified game configuration and guide planned for v1.1.0; not released yet.",
+  "planned": "Released configuration; future changes require per-game verification.",
   "runtimeChecks": {
-    "sameWorld": "Player2 joined and spawned; Player1 connection verified after clean restart; final simultaneous gameplay still under verification",
-    "twoControllers": "user_confirmed_separate_controls",
-    "separateAudio": "user_confirmed_and_actual_sessions_verified_including_full_client_restart",
-    "desktopSwitch": "hide_observed_while_unlocked_locked_input_release_pending",
-    "saveReload": "Server read prior autosave and wrote new autosaves through selective directory links; saved-character reload and final two-player scenario pending",
-    "twoClients": "launched",
-    "russian": "verified_by_game_agent",
-    "settingsIsolation": "verified_by_game_agent_original_settings_unchanged",
-    "secondWindowResize": "actual_compact_and_full_dimensions_verified_by_game_agent"
+    "sameWorld": "verified_both_distinct_players_connected_and_gameplay_observed",
+    "twoControllers": "user_confirmed_independent_gameplay",
+    "separateAudio": "user_confirmed_and_actual_sessions_verified_after_full_restart",
+    "desktopSwitch": "verified_after_explicit_End_lock_wasLocked_true_to_false_then_both_windows_restored",
+    "saveReload": "verified_normal_Player2_then_Player1_exit_latest_autosave_loaded_both_existing_characters_restored",
+    "twoClients": "verified_in_same_private_world",
+    "russian": "verified",
+    "settingsIsolation": "verified_original_settings_hash_unchanged",
+    "secondWindowResize": "verified_both_directions_and_full_monitor_on_new_session"
   },
   "bridge": "v5; unchanged during game settings and audio fixes",
   "updatedOn": "2026-10-31",
-  "publishedPatch": "Prepared v1.0.0 snapshot only. The final corrected runtime handler and settings helper are not yet published.",
+  "publishedPatch": "Final verified local handler adapted to portable BaseDirectory; source and fixture validation included.",
   "audioInstruction": {
     "location": "Inside each game: Settings > Sound > scroll down > Miscellaneous > Sound Card",
     "player1Example": "Headphones (2- OpenSwim Pro by Shokz)",
     "player2Example": "Headphones (OpenSwim Pro by Shokz)",
     "reason": "Persisted Windows policies alone did not move the existing streams off VoiceMeeter Aux.",
-    "guide": "../../docs/index.html#v-rising-audio",
+    "guide": "../../docs/v-rising.html#game-audio",
     "persistence": "Per-player Sound.Driver preserved after full restart; actual audio sessions on separate Shokz verified. No real endpoint GUIDs published."
   },
   "serverConnection": {
@@ -34,9 +34,17 @@
     "player1": "Load the private world first and wait for loading to finish.",
     "player2Menu": "Играть > Сетевая игра > Показать все серверы > Прямое подключение",
     "lanServerCheckbox": false,
-    "evidence": "Game agent verified Player2 direct connection and spawn with LAN disabled. Player1 connected after clean restart. Final simultaneous scenario still under verification.",
+    "evidence": "Both players joined same private world; Player2 direct join with LAN unchecked, clean restart and normal save/reload verified.",
     "emptyServerList": "Does not prevent direct connection.",
-    "guide": "../../docs/index.html#v-rising-server",
+    "guide": "../../docs/v-rising.html#server-address",
     "recovery": "After server crash, a clean Nucleus/client restart with the same world restored Player1 connection; underlying cause remains unproven."
-  }
+  },
+  "release": "1.1.0",
+  "limitations": [
+    "Standalone dedicated server Yes! option not tested",
+    "Physical Bluetooth disconnect/reconnect during gameplay not tested",
+    "First LAN-enabled timeout root cause unproven",
+    "Internal stale connection cause after crash unproven; clean restart workaround verified",
+    "Portable package tested in fixtures; full gameplay on a different PC needs its own verification"
+  ]
 }

@@ -1,14 +1,20 @@
 --- a/handlers/V Rising.js
 +++ b/handlers/V Rising.js
-@@ -49,6 +49,7 @@
+@@ -49,10 +49,10 @@
  Game.UserProfileSavePath = "AppData\\LocalLow\\Stunlock Studios\\VRising";
  Game.UserProfileConfigPath = "AppData\\LocalLow\\Stunlock Studios\\VRising\\Settings";
  Game.UserProfileSavePathNoCopy = true;
+-Game.Description =
+-  'IMPORTANT: Run your main game,change some graphics settings and put "IP" mode on "PREFERRED CONNECTION MODE" (without this it is not possible to connect), Put on "Window Mode" for the resizing to work in nucleus.\n\nNow to connect, just go to PLAY > ONLINE PLAY > show all servers. If the server list is empty, just press "Refresh"\nYou can also choose between a server hosted by the game (Private Game) or a dedicated server (if you want to configure it, it is done manually).\n\nYou need to add custom resolutions in your AMD/Nvidia/Intel panel (for example if you have a 1920x1080 monitor add custom resolutions like: 960x1080, 1920x540, 960x540 etc.)\n!!!NOT ALL VERTICAL RESOLUTIONS ARE SUPPORTED, SO CHANGE THE LAYOUT TO HORIZONTAL!!!.\n\nAfter all the instances have launched, resized and positioned correctly, press the "END" key once to lock the input for all instances to have their own cursor.\nYou need to left click each mouse to make the emulated cursors appear after locking the input. Press the "END" key again to unlock the input when you finish playing.\nIf you need to use the Mouse and Keyboard in instances that contain gamepads, simply press ALT+TAB to the instance in question (make sure the input is not blocked - END Key).\nYou can also use CTRL+Q to close Nucleus and all its instances when the input is unlocked.\n Ctrl+H to the Nucleus window before locking the input to balance fps.\nMultiple keyboards/mice and gamepads support.';
 +Game.UseNucleusEnvironment = true;
- Game.Description =
-   'IMPORTANT: Run your main game,change some graphics settings and put "IP" mode on "PREFERRED CONNECTION MODE" (without this it is not possible to connect), Put on "Window Mode" for the resizing to work in nucleus.\n\nNow to connect, just go to PLAY > ONLINE PLAY > show all servers. If the server list is empty, just press "Refresh"\nYou can also choose between a server hosted by the game (Private Game) or a dedicated server (if you want to configure it, it is done manually).\n\nYou need to add custom resolutions in your AMD/Nvidia/Intel panel (for example if you have a 1920x1080 monitor add custom resolutions like: 960x1080, 1920x540, 960x540 etc.)\n!!!NOT ALL VERTICAL RESOLUTIONS ARE SUPPORTED, SO CHANGE THE LAYOUT TO HORIZONTAL!!!.\n\nAfter all the instances have launched, resized and positioned correctly, press the "END" key once to lock the input for all instances to have their own cursor.\nYou need to left click each mouse to make the emulated cursors appear after locking the input. Press the "END" key again to unlock the input when you finish playing.\nIf you need to use the Mouse and Keyboard in instances that contain gamepads, simply press ALT+TAB to the instance in question (make sure the input is not blocked - END Key).\nYou can also use CTRL+Q to close Nucleus and all its instances when the input is unlocked.\n Ctrl+H to the Nucleus window before locking the input to balance fps.\nMultiple keyboards/mice and gamepads support.';
++Game.Description = "Two players on separate monitors. Load your saved profile; choose Default/No!, then PLAY. In each game select Settings > Sound > Miscellaneous > Sound Card and choose that player's headset. Player1 hosts a private world; Player2 joins 127.0.0.1:9876 on the same PC with LAN unchecked. Ctrl+F10 releases input and hides/restores games; F9 shows, F8 hides, F7 resizes only Player2 (all with Ctrl). Saves are under the Nucleus folder: saves/V Rising/Player1 and Player2. Set up selective save links before creating a world. Guide: https://deathferre-cloud.github.io/nucleus-coop-configs/v-rising.html";
  Game.PauseBetweenStarts = 20;
-@@ -88,7 +89,7 @@
+-Game.KillProcessesOnClose = ["cmd", "VRisingServer"];
++Game.KillProcessesOnClose = ["VRisingServer"];
+ 
+ //USS deprecated options:
+ 
+@@ -88,7 +88,7 @@
  Game.ProtoInput.InjectRuntime_EasyHookStealthMethod = false;
  
  Game.LockInputAtStart = false;
@@ -17,7 +23,7 @@
  Game.ProtoInput.FreezeExternalInputWhenInputNotLocked = false;
  Game.LockInputToggleKey = 0x23;
  
-@@ -110,7 +111,7 @@
+@@ -110,7 +110,7 @@
  Game.ProtoInput.CursorVisibilityHook = true;
  Game.ProtoInput.ClipCursorHook = true;
  Game.ProtoInput.FocusHooks = true;
@@ -26,7 +32,7 @@
  
  Game.ProtoInput.RawInputFilter = false;
  Game.ProtoInput.MouseMoveFilter = false;
-@@ -140,7 +141,22 @@
+@@ -140,7 +140,22 @@
  // Game.ProtoInput.FocusLoop_WM_MOUSEACTIVATE = true;
  Game.ProtoInput.BlockedMessages = [0x0008, 0x02a3, 0x02a1]; // Blocks WM_KILLFOCUS, WM_MOUSEHOVER and WM_MOUSELEAVE
  
@@ -49,14 +55,12 @@
    var Args = (Context.Args = " -screen-fullscreen 0 -popupwindow " + " -screen-width " + Context.Width + " -screen-height " + Context.Height);
    Context.StartArguments = Args;
  
-@@ -171,18 +187,22 @@
+@@ -171,18 +186,12 @@
    ];
    Context.WriteTextFile(dlc, lines);
  
 -  /////////////  edit CLientSettings.json
-+  // Local preparation: merge sparse settings as JSON instead of replacing missing lines.
-+  // NucleusUserRoot belongs to this player; the Steam user's settings are not edited.
-   var txtPath = Context.NucleusUserRoot + "\\" + Context.UserProfileConfigPath + "\\v4\\ClientSettings.json";
+-  var txtPath = Context.NucleusUserRoot + "\\" + Context.UserProfileConfigPath + "\\v4\\ClientSettings.json";
 -  var dict = [
 -    Context.FindLineNumberInTextFile(txtPath, '      "x": ', Nucleus.SearchType.StartsWith) + '|      "x": ' + Context.Width + ",",
 -    Context.FindLineNumberInTextFile(txtPath, '      "y": ', Nucleus.SearchType.StartsWith) + '|      "y": ' + Context.Height,
@@ -67,23 +71,16 @@
 -  ];
 -  Context.ReplaceLinesInTextFile(txtPath, dict);
 -
-+  var clientSettings = System.IO.File.Exists(txtPath) ? JSON.parse(System.IO.File.ReadAllText(txtPath)) : {};
-+  clientSettings.General = clientSettings.General || {};
-+  clientSettings.General.HasCompletedFirstStartupV4 = true;
-+  clientSettings.GameClient = clientSettings.GameClient || {};
-+  clientSettings.GameClient.AnalyticsEnabled = false;
-+  clientSettings.GameClient.HasSeenCinematic = true;
-+  clientSettings.Interface = clientSettings.Interface || {};
-+  clientSettings.Interface.Language = "russian";
-+  clientSettings.GraphicSettings = clientSettings.GraphicSettings || {};
-+  clientSettings.GraphicSettings.Resolution = { x: Context.Width, y: Context.Height };
-+  clientSettings.GraphicSettings.WindowMode = 3;
-+  System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(txtPath));
-+  System.IO.File.WriteAllText(txtPath, JSON.stringify(clientSettings, null, 2));
++  // Newtonsoft preserves empty arrays; Jint JSON serialization did not in this build.
++  var vrRoot = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "saves", "V Rising", "Player" + (Context.PlayerID + 1));
++  var vrSource = Context.NucleusUserRoot + "\\AppData\\LocalLow\\Stunlock Studios\\VRising\\Settings\\v4\\ClientSettings.json";
++  var vrSettings = System.Reflection.Assembly.LoadFrom(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "setup", "VRisingSettings.dll")).GetType("NucleusLocalTools.VRisingSettings");
++  vrSettings.Prepare(vrRoot, vrSource, Context.Width, Context.Height);
++  Context.StartArguments += ' -persistentDataPath "' + vrRoot + '" -logFile "' + vrRoot + '\\Player.log"';
    ///////////// Registry edit
    Context.EditRegKey("HKEY_CURRENT_USER", "SOFTWARE\\Stunlock Studios\\VRising", "Screenmanager Fullscreen mode_h3630240806", 3, Nucleus.RegType.DWord);
    Context.EditRegKey("HKEY_CURRENT_USER", "SOFTWARE\\Stunlock Studios\\VRising", "Screenmanager Fullscreen mode Default_h401710285", 0, Nucleus.RegType.DWord);
-@@ -295,7 +315,7 @@
+@@ -295,7 +304,7 @@
          ProtoInput.EnableMessageFilter(player.ProtoInputInstanceHandle, ProtoInput.Values.MouseButtonFilterID);
          ProtoInput.EnableMessageFilter(player.ProtoInputInstanceHandle, ProtoInput.Values.KeyboardButtonFilterID);
  
@@ -92,7 +89,7 @@
  
          ProtoInput.StartFocusMessageLoop(player.ProtoInputInstanceHandle, 10000, true, true, false, false, false);
        } else {
-@@ -318,7 +338,7 @@
+@@ -318,7 +327,7 @@
          ProtoInput.EnableMessageFilter(player.ProtoInputInstanceHandle, ProtoInput.Values.MouseButtonFilterID);
          ProtoInput.EnableMessageFilter(player.ProtoInputInstanceHandle, ProtoInput.Values.KeyboardButtonFilterID);
  

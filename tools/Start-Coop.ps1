@@ -2,7 +2,7 @@
 $ErrorActionPreference='Stop'
 $c=Get-Content -LiteralPath $Config -Raw -Encoding UTF8 | ConvertFrom-Json
 if(-not(Test-Path -LiteralPath (Join-Path $c.nucleusRoot 'NucleusCoop.exe'))){throw 'Check nucleusRoot in your local config.'}
-if(Get-Process -Name NucleusCoop -ErrorAction SilentlyContinue){throw 'Nucleus is already open. Save and finish any game session before reapplying controller mappings.'}
+if(Get-Process -Name NucleusCoop,VRising,VRisingServer,dontstarve_steam_x64 -ErrorAction SilentlyContinue){throw 'Nucleus or a game session is already open. Save and close it before reapplying controller mappings.'}
 if(@($c.controllerIds).Count -gt 0){
  if(-not(Test-Path -LiteralPath $c.rewasdCli) -or -not(Test-Path -LiteralPath $c.rewasdProfile)){throw 'Check reWASD paths.'}
  if(@($c.controllerIds).Count -ne 2 -or $c.controllerIds[0] -eq $c.controllerIds[1]){throw 'Enter two different physical controller IDs, or [] for native XInput controllers.'}

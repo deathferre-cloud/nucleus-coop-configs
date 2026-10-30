@@ -45,5 +45,5 @@ try {
  }
  throw "Install interrupted. Previous files restored. Backup: $backup. $installError"
 }
-Write-Output "Installed v1.0.0 / bridge v5. Backup: $backup"
+Write-Output "Installed v1.1.0 / bridge v5. Backup: $backup"
 Write-Output 'Enable both local Russian client mods in each game, apply and restart. See docs/dst.html.'

@@ -1,0 +1,132 @@
+{
+  "Title": "V Rising: пример двух игроков (создайте свой профиль в Nucleus)",
+  "Notes": "Reference only, not import-ready. Generate geometry and device assignments in Nucleus. Select Default/No! and separate audio outputs. See docs/v-rising.html.",
+  "Player(s)": 2,
+  "Controller(s)": 2,
+  "K&M": 0,
+  "Use XInput Index": true,
+  "AutoPlay": {
+    "Enabled": false
+  },
+  "Data": [
+    {
+      "PlayerID": 0,
+      "Nickname": "Player1",
+      "SteamID": "GENERATED_BY_NUCLEUS_PLAYER_1",
+      "GamepadGuid": "ASSIGN_YOUR_CONTROLLER_1",
+      "IsDInput": false,
+      "IsXInput": true,
+      "IsSDL2": false,
+      "Guests": {
+        "GUIDS": ""
+      },
+      "Processor": {
+        "IdealProcessor": "*",
+        "ProcessorAffinity": "",
+        "ProcessorPriorityClass": "Normal"
+      },
+      "IsKeyboardPlayer": false,
+      "IsRawMouse": false,
+      "HIDDeviceID": [
+        "Not required",
+        "Not required"
+      ],
+      "ScreenPriority": 0,
+      "ScreenIndex": 1,
+      "MonitorBounds": {
+        "X": 0,
+        "Y": 0,
+        "Width": 1920,
+        "Height": 1080
+      }
+    },
+    {
+      "PlayerID": 1,
+      "Nickname": "Player2",
+      "SteamID": "GENERATED_BY_NUCLEUS_PLAYER_2",
+      "GamepadGuid": "ASSIGN_YOUR_CONTROLLER_2",
+      "IsDInput": false,
+      "IsXInput": true,
+      "IsSDL2": false,
+      "Guests": {
+        "GUIDS": ""
+      },
+      "Processor": {
+        "IdealProcessor": "*",
+        "ProcessorAffinity": "",
+        "ProcessorPriorityClass": "Normal"
+      },
+      "IsKeyboardPlayer": false,
+      "IsRawMouse": false,
+      "HIDDeviceID": [
+        "Not required",
+        "Not required"
+      ],
+      "ScreenPriority": 0,
+      "ScreenIndex": 0,
+      "MonitorBounds": {
+        "X": 1920,
+        "Y": 0,
+        "Width": 1920,
+        "Height": 1080
+      }
+    }
+  ],
+  "Options": {
+    "select": "Default/No!"
+  },
+  "UseNicknames": {
+    "Use": true
+  },
+  "AutoDesktopScaling": {
+    "Enabled": false
+  },
+  "UseSplitDiv": {
+    "Enabled": false,
+    "HideOnly": false,
+    "Color": "Black"
+  },
+  "CustomLayout": {
+    "Ver": 1,
+    "Hor": 1,
+    "Max": 4
+  },
+  "WindowsSetupTiming": {
+    "Time": "0"
+  },
+  "PauseBetweenInstanceLaunch": {
+    "Time": "20"
+  },
+  "Network": {
+    "Type": "Automatic"
+  },
+  "AudioSettings": {
+    "CustomSettings": true,
+    "DefaultSettings": false
+  },
+  "AudioInstances": {
+    "AudioInstance1": "SELECT_PLAYER_1_ENDPOINT",
+    "AudioInstance2": "SELECT_PLAYER_2_ENDPOINT",
+    "AudioInstance3": "Default",
+    "AudioInstance4": "Default",
+    "AudioInstance5": "Default",
+    "AudioInstance6": "Default",
+    "AudioInstance7": "Default",
+    "AudioInstance8": "Default"
+  },
+  "CutscenesModeSettings": {
+    "Cutscenes_KeepAspectRatio": false,
+    "Cutscenes_MuteAudioOnly": false,
+    "Cutscenes_Unfocus": false
+  },
+  "StopGPUINav": {
+    "Enabled": false
+  },
+  "EnableWindowsMerger": {
+    "Enabled": false
+  },
+  "MergerResolution": "1920X1080",
+  "EnableLosslessHook": {
+    "Enabled": true
+  }
+}

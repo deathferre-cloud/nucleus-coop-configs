@@ -1,0 +1,11 @@
+{
+  "hubId": "7cS2MybpctbnuntvQ",
+  "version": 6,
+  "maintainer": "Vlxst",
+  "url": "https://hub.splitscreen.me/handler/7cS2MybpctbnuntvQ",
+  "upstreamSha256Raw": "f6fa992a0bcc6e68240f99c071b2541271ab4d029b31675e80c2d03017682be5",
+  "upstreamSha256Utf8LF": "66cd974cd68c1d3ca1750c6959748e053f99835ccdf3aab9e4a0cbf7b775d84c",
+  "runtimeVerifiedVersion": "v1.1.13.0-r99712-b17",
+  "steamBuildId": "23521359",
+  "portableChanges": "Runtime-tested patch adapted to AppDomain BaseDirectory and generic instructions; portable fixture tests are separate from actual local gameplay."
+}

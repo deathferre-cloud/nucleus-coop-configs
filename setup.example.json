@@ -7,5 +7,7 @@
     "REPLACE_DEVICE_2"
   ],
   "workshopRoot": "C:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\322330",
-  "dstProfileFile": "C:\\Games\\NucleusCoop\\game profiles\\Don't Starve Together\\Profile[1].json"
+  "dstProfileFile": "C:\\Games\\NucleusCoop\\game profiles\\Don't Starve Together\\Profile[1].json",
+  "steamRoot": "C:\\Program Files (x86)\\Steam",
+  "vRisingProfileFile": "C:\\Games\\NucleusCoop\\game profiles\\V Rising\\Profile[1].json"
 }

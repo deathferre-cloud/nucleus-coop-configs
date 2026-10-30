@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-30",
+  "os": "Windows 11",
+  "nucleus": "2.4.2",
+  "rewasd": "9.5.0.11346",
+  "voiceMeeterPotato": "3.0.2.8",
+  "bridge": "v5",
+  "monitors": [
+    {
+      "player": 1,
+      "bounds": [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    },
+    {
+      "player": 2,
+      "bounds": [
+        1920,
+        0,
+        1920,
+        1080
+      ]
+    }
+  ],
+  "controllers": "2 Steam Controller 2015, each mapped independently to Xbox 360",
+  "headphones": "2 OpenSwim Pro by Shokz Bluetooth A2DP endpoints",
+  "audio": {
+    "Nucleus": "different endpoint per instance, saved game profile",
+    "VoiceMeeterA1": "MME, Player2 headphones",
+    "VoiceMeeterA2": "MME, Player1 headphones",
+    "WindowsDefault": "existing VoiceMeeter virtual endpoint retained"
+  },
+  "privacy": "Device IDs, accounts, saves, activation data, logs and machine paths omitted.",
+  "release": "1.1.0",
+  "snapshotDate": "2026-10-31",
+  "games": {
+    "dst": "verified local setup retained",
+    "v-rising": {
+      "handlerHubVersion": 6,
+      "gameVersion": "v1.1.13.0-r99712-b17",
+      "steamBuildId": "23521359",
+      "mode": "Default/No!, private world, SteamIPv4, LAN unchecked",
+      "server": "127.0.0.1:9876 on same PC",
+      "audio": "select each sound card inside the game; verified after restart",
+      "saves": "selective Nucleus-account directory junctions; normal exit and both saved characters restored"
+    }
+  }
+}
