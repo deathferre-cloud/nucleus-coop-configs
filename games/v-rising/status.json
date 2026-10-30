@@ -1,0 +1,17 @@
+{
+  "status": "prepared_not_runtime_verified",
+  "steamAppId": "1604030",
+  "testedBuild": null,
+  "handlerHubVersion": 6,
+  "handlerHubId": "7cS2MybpctbnuntvQ",
+  "url": "https://hub.splitscreen.me/handler/7cS2MybpctbnuntvQ",
+  "planned": "Two clients, separate controls/audio, Russian, desktop switching. Shared bridge integration pending verified handoff.",
+  "runtimeChecks": {
+    "sameWorld": "not_run",
+    "twoControllers": "not_run",
+    "separateAudio": "not_run",
+    "desktopSwitch": "not_run",
+    "saveReload": "not_run"
+  },
+  "bridge": "v5 in prepared patch only"
+}

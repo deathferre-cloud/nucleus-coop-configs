@@ -1,0 +1,11 @@
+{
+  "nucleusRoot": "C:\\Games\\NucleusCoop",
+  "rewasdCli": "C:\\Program Files\\reWASD\\reWASDCommandLine.exe",
+  "rewasdProfile": "C:\\Users\\Public\\Documents\\reWASD\\Profiles\\Nucleus Co-op DST\\Controller\\Steam Controller to Xbox 360.rewasd",
+  "controllerIds": [
+    "REPLACE_DEVICE_1",
+    "REPLACE_DEVICE_2"
+  ],
+  "workshopRoot": "C:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\322330",
+  "dstProfileFile": "C:\\Games\\NucleusCoop\\game profiles\\Don't Starve Together\\Profile[1].json"
+}

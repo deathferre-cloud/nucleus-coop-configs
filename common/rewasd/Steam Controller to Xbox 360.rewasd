@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3.0,
+  "appVersion": "9.5.0",
+  "config": {
+    "appName": "Nucleus Co-op DST",
+    "comment": "Independent Steam Controller to Xbox 360 for local DST co-op",
+    "processNames": [],
+    "minTimeUnit": 1
+  },
+  "devices": {
+    "hardware": [
+      {
+        "convertToVirtual": true,
+        "id": 1,
+        "name": "gamepad"
+      }
+    ],
+    "virtual": {
+      "gamepads": [
+        {
+          "type": "360",
+          "id": 1
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "type": "default",
+      "id": 1
+    }
+  ],
+  "masks": [],
+  "mappings": []
+}

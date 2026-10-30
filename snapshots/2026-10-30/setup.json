@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-30",
+  "os": "Windows 11",
+  "nucleus": "2.4.2",
+  "rewasd": "9.5.0.11346",
+  "voiceMeeterPotato": "3.0.2.8",
+  "bridge": "v5",
+  "monitors": [
+    {
+      "player": 1,
+      "bounds": [
+        0,
+        0,
+        1920,
+        1080
+      ]
+    },
+    {
+      "player": 2,
+      "bounds": [
+        1920,
+        0,
+        1920,
+        1080
+      ]
+    }
+  ],
+  "controllers": "2 Steam Controller 2015, each mapped independently to Xbox 360",
+  "headphones": "2 OpenSwim Pro by Shokz Bluetooth A2DP endpoints",
+  "audio": {
+    "Nucleus": "different endpoint per instance, saved game profile",
+    "VoiceMeeterA1": "MME, Player2 headphones",
+    "VoiceMeeterA2": "MME, Player1 headphones",
+    "WindowsDefault": "existing VoiceMeeter virtual endpoint retained"
+  },
+  "privacy": "Device IDs, accounts, saves, activation data, logs and machine paths omitted."
+}

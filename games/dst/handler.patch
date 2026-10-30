@@ -1,0 +1,78 @@
+--- a/handlers/Don't Starve Together.js
++++ b/handlers/Don't Starve Together.js
+@@ -33,7 +33,7 @@
+ Game.UserProfileSavePathNoCopy = true;
+ Game.Description =
+   "In all instances press on the play button and select play offline, in one instance select host game and create a local only game, the others can join using browse games. If you use keyboards/mice after all the instances have launched, resized and positioned correctly, press the END key once to lock the input for all instances to have their own working cursor, you need to left click each mouse to make the emulated cursors appear after locking the input. Press the END key again to unlock the input when you finish playing.";
+-Game.KeepSymLinkOnExit = false;
++Game.KeepSymLinkOnExit = true;
+ Game.PauseBetweenProcessGrab = 2;
+ Game.PauseBetweenStarts = 25;
+ 
+@@ -71,7 +71,7 @@
+ Game.ProtoInput.InjectRuntime_EasyHookStealthMethod = false;
+ 
+ Game.LockInputAtStart = false;
+-Game.LockInputSuspendsExplorer = true;
++Game.LockInputSuspendsExplorer = false;
+ Game.ProtoInput.FreezeExternalInputWhenInputNotLocked = true;
+ Game.LockInputToggleKey = 0x23;
+ 
+@@ -90,7 +90,7 @@
+ Game.ProtoInput.CursorVisibilityHook = true;
+ Game.ProtoInput.ClipCursorHook = true;
+ Game.ProtoInput.FocusHooks = true;
+-Game.ProtoInput.DrawFakeCursor = true;
++Game.ProtoInput.DrawFakeCursor = false;
+ 
+ Game.ProtoInput.RawInputFilter = true;
+ Game.ProtoInput.MouseMoveFilter = false;
+@@ -120,11 +120,46 @@
+ //Game.ProtoInput.FocusLoop_WM_MOUSEACTIVATE = true;
+ Game.ProtoInput.BlockedMessages = [0x0008]; // Blocks WM_KILLFOCUS
+ 
++// Local desktop controls execute inside Nucleus so ProtoInput is released too.
++Game.CustomHotkeys = ["True|Desktop / games|Ctrl|F10", "True|Show games|Ctrl|F9", "True|Hide games|Ctrl|F8"];
++var dstDesktopBridgeType = null;
++function dstDesktopCommand(method) {
++  if (dstDesktopBridgeType == null) {
++    dstDesktopBridgeType = System.Reflection.Assembly.LoadFrom(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "setup", "NucleusDesktopBridge-v5.dll")).GetType("NucleusLocalTools.DesktopBridge");
++  }
++  dstDesktopBridgeType[method]();
++}
++Game.OnCustomHotKey_1 = function() { dstDesktopCommand("Toggle"); };
++Game.OnCustomHotKey_2 = function() { dstDesktopCommand("Show"); };
++Game.OnCustomHotKey_3 = function() { dstDesktopCommand("Hide"); };
++
+ Game.Play = function() {
+   var id = Context.PlayerID;
+-  var savePath = Context.GetFolder(Nucleus.Folder.Documents) + "\\Klei\\DoNotStarveTogether\\106285971" + id + "\\client.ini";
++  if (id == 0) dstDesktopCommand('Begin');
++  var coopSetup = JSON.parse(System.IO.File.ReadAllText(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "setup", "CoopSetup.local.json")));
++  var localRoot = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "saves", "Player" + (id + 1));
++  Context.StartArguments = '-persistent_storage_root "' + localRoot + '" -conf_dir DoNotStarveTogether';
++  var savePath = localRoot + "/DoNotStarveTogether/" + coopSetup.dstAccountIds[id] + "/client.ini";
++  System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(savePath));
++  if (!System.IO.File.Exists(savePath)) {
++    System.IO.File.WriteAllText(savePath, "[MISC]\ncontroller_popup=true\n\n[GRAPHICS]\nfullscreen=false\n");
++  }
++  function copyModTree(source, destination) {
++    System.IO.Directory.CreateDirectory(destination);
++    var files = System.IO.Directory.GetFiles(source);
++    for (var i = 0; i < files.length; i++) {
++      System.IO.File.Copy(files[i], System.IO.Path.Combine(destination, System.IO.Path.GetFileName(files[i])), true);
++    }
++    var directories = System.IO.Directory.GetDirectories(source);
++    for (var j = 0; j < directories.length; j++) {
++      copyModTree(directories[j], System.IO.Path.Combine(destination, System.IO.Path.GetFileName(directories[j])));
++    }
++  }
++  var instanceRoot = Context.GetFolder(Nucleus.Folder.InstancedGameFolder);
++  copyModTree(System.IO.Path.Combine(coopSetup.workshopRoot, "1240565842"), instanceRoot + "/mods/dst_russian_pack");
++  copyModTree(System.IO.Path.Combine(coopSetup.workshopRoot, "1834274509"), instanceRoot + "/mods/dst_russian_font");
+   Context.ModifySaveFile(savePath, savePath, Nucleus.SaveType.INI, [
+-    new Nucleus.IniSaveInfo("MISC", "controller_popup", "false"),
++    new Nucleus.IniSaveInfo("MISC", "controller_popup", "true"),
+     //new Nucleus.IniSaveInfo("MISC", "vibration", "true"),
+     new Nucleus.IniSaveInfo("GRAPHICS", "windowed_width", Context.Width),
+     new Nucleus.IniSaveInfo("GRAPHICS", "windowed_height", Context.Height),

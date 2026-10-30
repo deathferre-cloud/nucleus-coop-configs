@@ -1,0 +1,8 @@
+*.local.json
+local/
+backups/
+build/
+*.log
+*.exe
+*.dll
+__pycache__/

@@ -1,0 +1,8 @@
+{
+  "hubId": "HJtQAkDh9nyRd6z6J",
+  "version": 15,
+  "maintainer": "Talos91",
+  "url": "https://hub.splitscreen.me/handler/HJtQAkDh9nyRd6z6J",
+  "originalSha256": "997fe0859891c0d16fa89581805d8ca0fd24b14cf27d88e35cc94b087cc1729e",
+  "note": "Patch against the official handler. Install that handler from Nucleus Hub first."
+}

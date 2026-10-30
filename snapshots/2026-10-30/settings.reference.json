@@ -1,0 +1,75 @@
+{
+  "Hotkeys": {
+    "Close": "Ctrl+Q",
+    "Stop": "Ctrl+E",
+    "TopMost": "Ctrl+T",
+    "SetFocus": "Ctrl+H",
+    "ResetWindows": "Ctrl+R",
+    "Cutscenes": "Ctrl+M",
+    "Switch": "Ctrl+N",
+    "ShortcutsReminder": "Alt+R",
+    "SwitchMergerChildForeGround": "Alt+A",
+    "LockKey": "End"
+  },
+  "XShortcuts": {
+    "Close": "1024+16",
+    "Stop": "1024+32",
+    "TopMost": "1024+16384",
+    "SetFocus": "1024+32768",
+    "ResetWindows": "1024+8",
+    "Cutscenes": "1024+8192",
+    "Switch": "1024+512",
+    "LockInputs": "1024+128",
+    "ReleaseCursor": "1024+256"
+  },
+  "XUINav": {
+    "Type": "Xbox",
+    "Enabled": "False",
+    "Deadzone": "10000",
+    "DragDrop": "512",
+    "RightClick": "10000",
+    "LeftClick": "9999",
+    "LockUIControl": "1024+4",
+    "OpenOsk": "1024+1"
+  },
+  "Theme": {
+    "Theme": "default"
+  },
+  "Audio": {
+    "Custom": "1",
+    "AudioInstance8": "Default",
+    "AudioInstance7": "Default",
+    "AudioInstance6": "Default",
+    "AudioInstance5": "Default",
+    "AudioInstance4": "Default",
+    "AudioInstance3": "Default",
+    "AudioInstance2": "Default",
+    "AudioInstance1": "Default"
+  },
+  "CustomLayout": {
+    "WindowsMerger": "False",
+    "WindowsMergerRes": "1920X1080",
+    "LosslessHook": "True",
+    "SplitDiv": "False",
+    "HideOnly": "False",
+    "SplitDivColor": "Black",
+    "HorizontalLines": "1",
+    "VerticalLines": "1",
+    "MaxPlayers": "4",
+    "Cts_KeepAspectRatio": "False",
+    "Cts_MuteAudioOnly": "False",
+    "Cts_Unfocus": "False"
+  },
+  "Misc": {
+    "SteamLang": "Russian",
+    "EpicLang": "Russian",
+    "Network": "Automatic",
+    "KeepAccounts": "False",
+    "IgnoreInputLockReminder": "True",
+    "DisableGameProfiles": "False"
+  },
+  "Dev": {
+    "UseXinputIndex": "True",
+    "ProfileAssignGamepadByButonPress": "False"
+  }
+}

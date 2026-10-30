@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "updatedOn": "2026-10-30",
+  "game": "Don't Starve Together",
+  "status": "runtime_verified_on_original_setup",
+  "bridge": "v5",
+  "verificationReport": "../../VALIDATION.md",
+  "userConfirmed": [
+    "two_player_world",
+    "independent_controls",
+    "separate_headset_audio",
+    "desktop_input_release"
+  ],
+  "agentVerified": [
+    "two_clients",
+    "Master_and_Caves_connected",
+    "Russian_menus_and_mod_startup_complete",
+    "distinct_active_audio_sessions",
+    "restart_audio_routing",
+    "player1_route_preserved_after_player2_exit",
+    "Ctrl_F7_resize",
+    "full_monitor_startup"
+  ],
+  "notIndependentlyVerified": [
+    "character_entering_cave",
+    "live_Bluetooth_disconnect_reconnect",
+    "full_install_on_another_PC"
+  ]
+}

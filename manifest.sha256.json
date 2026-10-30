@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "algorithm": "SHA-256",
+  "lineEndings": "LF",
+  "excludes": [
+    "manifest.sha256.json",
+    "build/",
+    ".git/"
+  ],
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "745d01d7dead6e49831bb4fe1ae6159cb37d6ef139a635d367468b9d8b2520b6",
+      "bytes": 28
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "sha256": "9f6e6f234cc0e14b27e014dd23c955fc076fecc3e24c8bf68b6f8531705888e4",
+      "bytes": 701
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "4783178fde800b245c27e22f63a2f6c7578a08a51c855693a7e8d8de0a1151cd",
+      "bytes": 67
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "3f2a7692523e617faa2315d96e6ab1198f3a18f5b6dc64b6d497432b2b783725",
+      "bytes": 1401
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "79b7338ce843e16283c4e076a5c56129ff1bab892b4fa544e12aba756592a987",
+      "bytes": 6396
+    },
+    {
+      "path": "common/rewasd/Steam Controller to Xbox 360.rewasd",
+      "sha256": "d58671c2e170e74fad2d8ea5508b52b58f5298a8a59ced3cbfe18c47b3426c99",
+      "bytes": 586
+    },
+    {
+      "path": "common/src/AudioCheck.cs",
+      "sha256": "bf1ba6a28b0a0942753df80bce68095e07f0f962168e8434ec74dc830610deac",
+      "bytes": 2954
+    },
+    {
+      "path": "common/src/NucleusDesktopBridge.cs",
+      "sha256": "72e003ab7dd45c2e78bc593c4ff32a662f4c4bf5fa43e82773193cad30cfd9b3",
+      "bytes": 15824
+    },
+    {
+      "path": "common/src/NucleusDesktopCommand.cs",
+      "sha256": "09cc2c15363b0a3ddbacdf1858e7066bfdf8acdb818413bd0457d672abf6a94b",
+      "bytes": 2515
+    },
+    {
+      "path": "docs/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/change-template.md",
+      "sha256": "323782b7a67d7e4580e72568c7d6c8939b0f7c3e1ab6a938f5d3c47bd54204bd",
+      "bytes": 1058
+    },
+    {
+      "path": "docs/dst.html",
+      "sha256": "eafd7523d3deb01d5285935fb3fbb6f9f77abb73d66d70169a8e52e6620d3a9a",
+      "bytes": 57919
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "3ca117e9d9af36180a83c31825aa0d795438cc22682f71ec2a65971e9826bc4a",
+      "bytes": 59384
+    },
+    {
+      "path": "docs/setup.svg",
+      "sha256": "bf54bee3141125e3a759f3c2eea2765d4eef445125853ed9563147dc34f68e57",
+      "bytes": 3329
+    },
+    {
+      "path": "games/dst/handler.patch",
+      "sha256": "ba651aafb14a50162a06bfb18d8329833c558a5fda8f5ccfc913a8f21e134b4a",
+      "bytes": 4605
+    },
+    {
+      "path": "games/dst/profile.reference.json",
+      "sha256": "f300592fb5566c9a389c5529367899975ed90bc84ecc1e175eb82d15c3c3756b",
+      "bytes": 3148
+    },
+    {
+      "path": "games/dst/source.json",
+      "sha256": "c946b5da65fcab70e5f290735aa5c33e21aa1a5fd5f8767f4310ccb1d5c580fb",
+      "bytes": 326
+    },
+    {
+      "path": "games/dst/status.json",
+      "sha256": "b071c05a875fac37f1346260f28c0481b75130b523762b957a7df22d4c6bc130",
+      "bytes": 775
+    },
+    {
+      "path": "games/v-rising/handler-prepared.patch",
+      "sha256": "b5a199dec57fa420a4599edf3f6db72425fd222da52f6753ff426bf14d15c366",
+      "bytes": 7382
+    },
+    {
+      "path": "games/v-rising/status.json",
+      "sha256": "cfd22eb5b13a5a82b4b5d81678276ac40bba5489dd861288f196a14ca268378a",
+      "bytes": 582
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "bytes": 35149
+    },
+    {
+      "path": "README.md",
+      "sha256": "a3b4ab7b50dcd3f0345f173b28892fffa22ae66ef5999387f26a6fd2915c3e24",
+      "bytes": 7748
+    },
+    {
+      "path": "setup.example.json",
+      "sha256": "218d44d000624f1dbe6ec45b06c0025836097ecdc071dbec09c039f95bfdbc57",
+      "bytes": 514
+    },
+    {
+      "path": "snapshots/2026-10-30/settings.reference.json",
+      "sha256": "51d3338a9630b1f059a769240078259809fa3831b189445ebede2ed1b19b78e6",
+      "bytes": 1806
+    },
+    {
+      "path": "snapshots/2026-10-30/setup.json",
+      "sha256": "7b9e37232e679d1d66ffddf8c8043f56d034313de14385518dd7adc493fc0f5e",
+      "bytes": 887
+    },
+    {
+      "path": "THIRD-PARTY.md",
+      "sha256": "0fd8324cf6c9ad72ba6e8a60059cd32147f44e57386673148c6920798f91bb24",
+      "bytes": 2005
+    },
+    {
+      "path": "tools/Backup-Local.ps1",
+      "sha256": "371daa61d0e440d6d566c7f734eee245da89de9c7944e8704f0379aaaeb294d1",
+      "bytes": 1168
+    },
+    {
+      "path": "tools/Build-Tools.ps1",
+      "sha256": "28dd7ca6c8e18f704a23d82f0b00cf46f99366c6d1a499d2a8ec35070d52613a",
+      "bytes": 1425
+    },
+    {
+      "path": "tools/Get-Devices.ps1",
+      "sha256": "c71f2e3a3a881ae499b15f1662835080f30ecaf2642b07b001002e936ea7afc7",
+      "bytes": 870
+    },
+    {
+      "path": "tools/Install-DST.ps1",
+      "sha256": "16a3c54bfe926f9929f61f6f8ca057d59a44cf07d091e63577171b076b89f718",
+      "bytes": 3962
+    },
+    {
+      "path": "tools/Start-Coop.ps1",
+      "sha256": "7c87150efa9faa62fb727a17ed63878ec880124eb67b75f38167499e1c6b527d",
+      "bytes": 1537
+    },
+    {
+      "path": "VALIDATION.md",
+      "sha256": "c84feacb88884697c3087be4c52a0b7ead4d0dc7b76842a0daf594384cd1f72e",
+      "bytes": 6810
+    },
+    {
+      "path": "VERSION",
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+      "bytes": 6
+    }
+  ]
+}
