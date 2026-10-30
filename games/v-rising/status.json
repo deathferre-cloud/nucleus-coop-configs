@@ -7,11 +7,11 @@
   "url": "https://hub.splitscreen.me/handler/7cS2MybpctbnuntvQ",
   "planned": "Full verified game configuration and guide planned for v1.1.0; not released yet.",
   "runtimeChecks": {
-    "sameWorld": "not_run",
+    "sameWorld": "Player2 joined and spawned; Player1 connection verified after clean restart; final simultaneous gameplay still under verification",
     "twoControllers": "user_confirmed_separate_controls",
-    "separateAudio": "user_confirmed_and_actual_sessions_verified_after_in_game_sound_card_selection_restart_pending",
+    "separateAudio": "user_confirmed_and_actual_sessions_verified_including_full_client_restart",
     "desktopSwitch": "hide_observed_while_unlocked_locked_input_release_pending",
-    "saveReload": "not_run",
+    "saveReload": "Server read prior autosave and wrote new autosaves through selective directory links; saved-character reload and final two-player scenario pending",
     "twoClients": "launched",
     "russian": "verified_by_game_agent",
     "settingsIsolation": "verified_by_game_agent_original_settings_unchanged",
@@ -26,6 +26,17 @@
     "player2Example": "Headphones (OpenSwim Pro by Shokz)",
     "reason": "Persisted Windows policies alone did not move the existing streams off VoiceMeeter Aux.",
     "guide": "../../docs/index.html#v-rising-audio",
-    "persistence": "Selection stored in per-player Sound.Driver; restart verification pending. No real endpoint GUIDs published."
+    "persistence": "Per-player Sound.Driver preserved after full restart; actual audio sessions on separate Shokz verified. No real endpoint GUIDs published."
+  },
+  "serverConnection": {
+    "address": "127.0.0.1:9876",
+    "scope": "Two clients on the same computer only; another computer requires the host computer address.",
+    "player1": "Load the private world first and wait for loading to finish.",
+    "player2Menu": "Играть > Сетевая игра > Показать все серверы > Прямое подключение",
+    "lanServerCheckbox": false,
+    "evidence": "Game agent verified Player2 direct connection and spawn with LAN disabled. Player1 connected after clean restart. Final simultaneous scenario still under verification.",
+    "emptyServerList": "Does not prevent direct connection.",
+    "guide": "../../docs/index.html#v-rising-server",
+    "recovery": "After server crash, a clean Nucleus/client restart with the same world restored Player1 connection; underlying cause remains unproven."
   }
 }

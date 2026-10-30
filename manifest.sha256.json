@@ -30,8 +30,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "510fa43d9197196489e6d03ebe7d32f9501b76e49c36d7557ebcdceaa7fddbba",
-      "bytes": 7584
+      "sha256": "515f32592dd5d3661432bbaca25c36c2759798bffc9395b6a5b7edba321cc9dc",
+      "bytes": 8211
     },
     {
       "path": "common/rewasd/Steam Controller to Xbox 360.rewasd",
@@ -70,8 +70,8 @@
     },
     {
       "path": "docs/index.html",
-      "sha256": "e4ccd1af82a7e348420cb83bce998ee19399119b78ac7229b036d5649cce764e",
-      "bytes": 63008
+      "sha256": "205a6ca2172c10a040441ed09613d067082ebe4fce6b22688a9fdf5d287753d2",
+      "bytes": 67320
     },
     {
       "path": "docs/setup.svg",
@@ -105,8 +105,8 @@
     },
     {
       "path": "games/v-rising/status.json",
-      "sha256": "7aa53cddcb050038db8fc55f9ae10055657f8241690e2d53fd14f579c61f7c27",
-      "bytes": 1699
+      "sha256": "e1e35d9a9f05426973fb8c1bab41bda31491e069fc83e57fecc68b03f6843008",
+      "bytes": 2845
     },
     {
       "path": "LICENSE",
@@ -115,8 +115,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "0d81db8bc8eba5c2679739e0f202c256621ad6a0a7ba6c462c77174e6a5fc8e3",
-      "bytes": 9045
+      "sha256": "18eb7d16f484e49ae455ade220757d3681caf8f8a3f9427a3e2d7541c8729a31",
+      "bytes": 10303
     },
     {
       "path": "setup.example.json",
@@ -174,6 +174,6 @@
       "bytes": 6
     }
   ],
-  "revision": "Unreleased documentation update, 2026-10-31",
+  "revision": "Unreleased V Rising audio and direct-connection documentation, 2026-10-31",
   "plannedVersion": "1.1.0"
 }
