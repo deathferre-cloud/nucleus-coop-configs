@@ -1,17 +1,31 @@
 {
-  "status": "prepared_not_runtime_verified",
+  "status": "runtime_testing_partial_results_documented",
   "steamAppId": "1604030",
-  "testedBuild": null,
+  "testedBuild": "v1.1.13.0-r99712-b17",
   "handlerHubVersion": 6,
   "handlerHubId": "7cS2MybpctbnuntvQ",
   "url": "https://hub.splitscreen.me/handler/7cS2MybpctbnuntvQ",
-  "planned": "Two clients, separate controls/audio, Russian, desktop switching. Shared bridge integration pending verified handoff.",
+  "planned": "Full verified game configuration and guide planned for v1.1.0; not released yet.",
   "runtimeChecks": {
     "sameWorld": "not_run",
-    "twoControllers": "not_run",
-    "separateAudio": "not_run",
-    "desktopSwitch": "not_run",
-    "saveReload": "not_run"
+    "twoControllers": "user_confirmed_separate_controls",
+    "separateAudio": "user_confirmed_and_actual_sessions_verified_after_in_game_sound_card_selection_restart_pending",
+    "desktopSwitch": "hide_observed_while_unlocked_locked_input_release_pending",
+    "saveReload": "not_run",
+    "twoClients": "launched",
+    "russian": "verified_by_game_agent",
+    "settingsIsolation": "verified_by_game_agent_original_settings_unchanged",
+    "secondWindowResize": "actual_compact_and_full_dimensions_verified_by_game_agent"
   },
-  "bridge": "v5 in prepared patch only"
+  "bridge": "v5; unchanged during game settings and audio fixes",
+  "updatedOn": "2026-10-31",
+  "publishedPatch": "Prepared v1.0.0 snapshot only. The final corrected runtime handler and settings helper are not yet published.",
+  "audioInstruction": {
+    "location": "Inside each game: Settings > Sound > scroll down > Miscellaneous > Sound Card",
+    "player1Example": "Headphones (2- OpenSwim Pro by Shokz)",
+    "player2Example": "Headphones (OpenSwim Pro by Shokz)",
+    "reason": "Persisted Windows policies alone did not move the existing streams off VoiceMeeter Aux.",
+    "guide": "../../docs/index.html#v-rising-audio",
+    "persistence": "Selection stored in per-player Sound.Driver; restart verification pending. No real endpoint GUIDs published."
+  }
 }
