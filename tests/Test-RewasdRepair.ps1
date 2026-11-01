@@ -25,6 +25,9 @@ Assert-True (Test-LicenseError 'Ошибка проверки лицензии.'
 Assert-True (-not (Test-LicenseError 'device not found')) 'device error not mislabeled license'
 
 # All device mutations below are replaced with test doubles.
+$originalKeepReader = ${function:Get-RewasdKeepVirtual}
+function Get-RewasdKeepVirtual($Config) { return $false }
+function Get-ProtectedSession { return @([pscustomobject]@{Name='VRising.exe';Id=5;Created='initial'}) }
 $script:fakeGames=@('VRising');$script:resetCalls=0
 function Get-BlockingGames {return $script:fakeGames}
 function Get-PnpDevice {return @($receiver)}
@@ -41,6 +44,12 @@ Assert-True ($script:resetCalls-eq1) 'race guard prevented mutation'
 $testRoot=Join-Path ([IO.Path]::GetTempPath()) ('NucleusRewasdTests-'+[guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $testRoot|Out-Null
 $dummy=Join-Path $testRoot 'dummy.txt';Set-Content -LiteralPath $dummy -Value 'fixture'
+$settingsFixture=Join-Path $testRoot 'settings.json'
+[IO.File]::WriteAllText($settingsFixture,'{"":{"placeholder":"test"},"Config":{"LeaveVirtualControllerForOfflineController":"1"}}',[Text.UTF8Encoding]::new($false))
+Assert-True (& $originalKeepReader ([pscustomobject]@{SettingsPath=$settingsFixture})) 'actual reWASD empty-name JSON parses in this PowerShell version'
+[IO.File]::WriteAllText($settingsFixture,'{"":{},"Config":{"LeaveVirtualControllerForOfflineController":"0"}}',[Text.UTF8Encoding]::new($false))
+Assert-True (-not (& $originalKeepReader ([pscustomobject]@{SettingsPath=$settingsFixture}))) 'disabled retention is not accepted'
+Assert-True (-not (& $originalKeepReader ([pscustomobject]@{SettingsPath=($settingsFixture+'.missing')}))) 'missing settings fail closed'
 $config=[pscustomobject]@{ControllerIds=@('1111111111111111','2222222222222222');CliPath=$dummy;ProfilePath=$dummy;SteamPath=$dummy}
 Assert-RepairConfig $config
 Assert-True $true 'valid distinct IDs and file paths accepted'
@@ -126,7 +135,7 @@ Assert-True ($script:events.Count-eq0) 'ready coordinator performs no apply or d
 $result=Invoke-Fixture 'unicode-конфиг' @($ready)
 Assert-True ($result.Success -and $result.Action-eq'already_ready_no_changes') 'UTF8 config without BOM preserves Cyrillic paths in both shells'
 $result=Invoke-Fixture 'live' @($one) -Live
-Assert-True (-not $result.Success -and $result.Action-eq'live_session_preserved') 'live game is preserved'
+Assert-True (-not $result.Success -and $result.Action-eq'live_repair') 'live game is preserved'
 Assert-True ($script:events.Count-eq0) 'live branch does not apply or reset'
 $result=Invoke-Fixture 'apply-only' @($one,$ready)
 Assert-True ($result.Success -and ($script:events-join ',')-eq'apply') 'apply-only success avoids receiver reset'
@@ -165,6 +174,103 @@ $body=$text.Substring($text.IndexOf('$mutex =')).Replace('$PSScriptRoot','$Fixtu
 $hostExe=(Microsoft.PowerShell.Management\Get-Process -Id $PID).Path
 $child=Microsoft.PowerShell.Management\Start-Process -FilePath $hostExe -WindowStyle Hidden -Wait -PassThru -ArgumentList @('-NoProfile','-ExecutionPolicy','Bypass','-File',('"{0}"'-f$childScript),'-Source',('"{0}"'-f$source),'-Fixture',('"{0}"'-f$childFixture))
 Assert-True ($child.ExitCode-eq1) 'real child process returns exit code 1 on coordinator failure'
+# Verify live recovery with no calls to actual devices, applications or UI.
+$stages=@(0,0)
+$idle=@([pscustomobject]@{Slot=0;Connected=$true;ADown=$false},[pscustomobject]@{Slot=1;Connected=$true;ADown=$false})
+Update-InputProof $stages $idle
+Update-InputProof $stages $idle
+Assert-True (($stages-join ',')-eq'1,1') 'idle retained Xbox cannot prove physical input'
+$held=@([pscustomobject]@{Slot=0;Connected=$true;ADown=$true},[pscustomobject]@{Slot=1;Connected=$true;ADown=$true})
+$stuck=@(0,0);Update-InputProof $stuck $held
+Assert-True (($stuck-join ',')-eq'0,0') 'held button at probe start cannot pass'
+Update-InputProof $stages $held;Update-InputProof $stages $idle
+Assert-True (($stages-join ',')-eq'3,3') 'press and release from both required slots proves input'
+Update-InputProof $stages @([pscustomobject]@{Slot=1;Connected=$false;ADown=$false})
+Assert-True ($stages[1]-eq0) 'disconnect invalidates prior input proof'
+Assert-Throws {Assert-SessionPreserved @([pscustomobject]@{Name='VRising.exe';Id=5;Created='old'}) @([pscustomobject]@{Name='VRising.exe';Id=5;Created='new'})} 'PID reuse does not prove world process preservation'
+
+$script:keepEnabled=$false
+function Get-RewasdKeepVirtual($Config) {return $script:keepEnabled}
+$script:fakeGames=@('VRising')
+Assert-Throws {Invoke-ReceiverReset $null -DuringGame} 'live receiver reset requires keep-virtual option'
+$script:keepEnabled=$true
+$beforeReset=$script:resetCalls
+$reset=Invoke-ReceiverReset $null -DuringGame
+Assert-True ($script:resetCalls-eq($beforeReset+1)-and$reset.InstanceId-eq$receiver.InstanceId) 'explicit live worker can reset exact receiver with keep-virtual enabled'
+$script:keepReads=0
+function Get-RewasdKeepVirtual($Config) {$script:keepReads++;return ($script:keepReads-eq1)}
+Assert-Throws {Invoke-ReceiverReset $null -DuringGame} 'keep-virtual setting race blocks live device reset'
+Assert-True ($script:resetCalls-eq($beforeReset+1)) 'setting race caused no additional reset'
+function Get-RewasdKeepVirtual($Config) {return $script:keepEnabled}
+
+function Get-ProtectedSession {
+ $script:sessionReads++
+ $created='original'
+ if($script:replaceSession -and $script:sessionReads-ge3){$created='restarted'}
+ return @([pscustomobject]@{Name='VRising.exe';Id=11;Created=$created},[pscustomobject]@{Name='VRisingServer.exe';Id=12;Created='world'},[pscustomobject]@{Name='steam.exe';Id=13;Created='steam'},[pscustomobject]@{Name='jlserv.exe';Id=14;Created='service'})
+}
+function Invoke-RemapOn($Config) {
+ $script:liveEvents.Add('remap-on')
+ if($script:liveLicense){throw 'Ошибка проверки лицензии.'}
+ return @([pscustomobject]@{ExitCode=0})
+}
+function Show-InputProof {
+ $script:liveEvents.Add('input-proof')
+ if($script:proofs.Count-eq0){throw 'Unexpected input proof call'}
+ $p=$script:proofs[0];$script:proofs.RemoveAt(0);return $p
+}
+function Show-RepairMessage([string]$Text,[switch]$CanCancel) {
+ $script:liveEvents.Add('notice')
+ if($CanCancel-and$script:liveCancel){return 'Cancel'}
+ return 'OK'
+}
+function Start-ReceiverWorker($ConfigPath,$WorkerReport,[switch]$DuringGame) {
+ if(-not$DuringGame){throw 'Wrong worker mode'}
+ $script:liveEvents.Add('live-receiver')
+ if($script:liveWorkerFails){throw 'Windows reset failed'}
+ return [pscustomobject]@{Success=$true}
+}
+function Get-ControllerSnapshot {return $script:liveSnapshot}
+function Start-Process {throw 'Live repair must not start Steam or any game/service'}
+function Apply-SavedProfiles {throw 'Live repair must not apply profiles and recreate virtual devices'}
+function Invoke-LiveFixture($Proofs,[switch]$Cancel,[switch]$License,[switch]$WorkerFails,[switch]$ReplaceSession,[switch]$MissingSlot,[switch]$KeepOff) {
+ $script:keepEnabled=-not$KeepOff
+ $script:liveEvents=New-Object System.Collections.Generic.List[string]
+ $script:proofs=New-Object System.Collections.ArrayList
+ foreach($p in $Proofs){[void]$script:proofs.Add($p)}
+ $script:liveCancel=[bool]$Cancel;$script:liveLicense=[bool]$License;$script:liveWorkerFails=[bool]$WorkerFails
+ $script:replaceSession=[bool]$ReplaceSession;$script:sessionReads=0
+ $script:liveSnapshot=$ready;if($MissingSlot){$script:liveSnapshot=$one}
+ $run=[ordered]@{Success=$false;ReceiverReset=$false}
+ try {Invoke-LiveRepair $config 'test-config.json' 'test-report.json' $run}catch{$run.Error=$_.Exception.Message}
+ return $run
+}
+$yes=[pscustomobject]@{Passed=$true;Cancelled=$false}
+$no=[pscustomobject]@{Passed=$false;Cancelled=$false}
+$cancel=[pscustomobject]@{Passed=$false;Cancelled=$true}
+$r=Invoke-LiveFixture @($yes)
+Assert-True ($r.Success-and$r.SessionPreserved-and-not$r.ReceiverReset) 'soft live recovery preserves session and avoids receiver reset'
+Assert-True (($script:liveEvents-join ',')-eq'remap-on,input-proof,notice') 'soft live path only enables existing remaps and validates physical input'
+$r=Invoke-LiveFixture @($no,$yes)
+Assert-True ($r.Success-and$r.SessionPreserved-and$r.ReceiverReset) 'full simulated live repair keeps game server Steam and service processes'
+Assert-True (($script:liveEvents-join ',')-eq'remap-on,input-proof,notice,live-receiver,notice,remap-on,input-proof,notice') 'live ordering never applies profiles or restarts applications'
+$r=Invoke-LiveFixture @($cancel)
+Assert-True (-not$r.Success-and-not$r.ReceiverReset-and$r.SessionPreserved) 'cancelled input test never escalates to reset'
+$r=Invoke-LiveFixture @($no) -Cancel
+Assert-True (-not$r.Success-and-not$r.ReceiverReset) 'cancel before reset leaves receiver unchanged'
+$r=Invoke-LiveFixture @($no) -WorkerFails
+Assert-True (-not$r.Success-and$r.SessionPreserved) 'failed reset cannot report live success or restart world'
+$r=Invoke-LiveFixture @($no,$no)
+Assert-True (-not$r.Success-and$r.ReceiverReset-and$r.SessionPreserved) 'two idle virtual devices after reset cannot report recovery'
+$r=Invoke-LiveFixture @($yes) -MissingSlot
+Assert-True (-not$r.Success) 'physical proof still requires two expected XInput slots'
+$r=Invoke-LiveFixture @($no,$yes) -ReplaceSession
+Assert-True (-not$r.Success-and-not$r.SessionPreserved) 'changed game process invalidates recovery claim'
+$r=Invoke-LiveFixture @() -License
+Assert-True (-not$r.Success-and-not$r.ReceiverReset-and$r.SessionPreserved) 'license failure leaves live receiver and session untouched'
+$r=Invoke-LiveFixture @() -KeepOff
+Assert-True (-not$r.Success-and$script:liveEvents.Count-eq0) 'disabled virtual retention blocks all live mutations'
+
 $report=[pscustomobject]@{Passed=$script:checks.Count;Checks=$script:checks;PowerShell=$PSVersionTable.PSVersion.ToString();NativeDeviceMutations=$false;FixtureRoot=$testRoot}
 if($TestReportPath){$report|ConvertTo-Json -Depth 5|Set-Content -LiteralPath $TestReportPath -Encoding UTF8}
 "All $($script:checks.Count) checks passed. No native device reset or real Steam shutdown executed."

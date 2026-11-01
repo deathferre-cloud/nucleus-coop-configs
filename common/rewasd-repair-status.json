@@ -1,30 +1,44 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "purpose": "Two Steam Controller 2015 through one supported USB receiver and two virtual Xbox 360 in slots0/1",
   "script": "../tools/Repair-Rewasd.ps1",
   "configExample": "../tools/Repair-Rewasd.example.json",
   "privateConfig": "Repair-Rewasd.private.json, never publish",
   "verification": {
-    "mockChecks": 42,
+    "mockChecks": 66,
     "shells": [
       "5.1",
       "7"
     ],
-    "actualReadOnlyCheck": "Ready=true, two PnP Xbox and XInput0/1 while V Rising running",
-    "actualReceiverRecovery": "Game chat verified targeted reset then user power-on, result retained after Steam return",
-    "fullInteractiveShortcutOnNextRealFailure": "not_yet_tested"
+    "actualReadOnlyCheck": "Ready reflects virtual devices only; PhysicalInputVerified=false",
+    "actualReceiverRecovery": "Historical 2026-11-01 with games closed: targeted reset then user power-on, retained after Steam return. New live reset with keep-virtual not tested.",
+    "fullInteractiveShortcutOnNextRealFailure": "deferred_by_user",
+    "physicalRetention": "Two Xbox/XInput0/1 remained after user powered off second physical controller, game closed",
+    "realRemapOn": "Both exit0; processes and mapping hash unchanged, game closed",
+    "liveReceiverReset": "not_yet_tested"
   },
   "protections": [
     "No service restart or activation change",
-    "No active-game receiver reset",
     "Only one exact receiver, hubs and ambiguity rejected",
     "Two distinct saved IDs and all paths validated",
     "Worker completes before mutex release and Steam restore",
-    "Errors cannot report successful repair"
+    "Errors cannot report successful repair",
+    "Live receiver reset requires retained virtual controllers, explicit confirmation and worker recheck",
+    "Live branch remap on only, no profile apply or Steam shutdown",
+    "A release/press/release for both slots; process identity includes creation time"
   ],
   "limitations": [
     "Specific Steam Controller receiver hardware and XInput0/1 layout",
     "Original detection/license causes not established",
-    "Long-term reliability unknown"
-  ]
+    "Long-term reliability unknown",
+    "Live world recovery, receiver reset with retention and per-character assignment not yet verified",
+    "Original game-specific process names only; new games require adaptation and testing"
+  ],
+  "liveMode": "installed_and_mock_tested_gameplay_deferred_by_user",
+  "gameProcessCoverage": [
+    "DST clients and dedicated servers",
+    "V Rising clients and server"
+  ],
+  "selection": "Active game, explicit -LiveRepair or keep-virtual setting enabled",
+  "settingsPath": "Optional; empty uses current-user reWASD settings under ProgramData"
 }
