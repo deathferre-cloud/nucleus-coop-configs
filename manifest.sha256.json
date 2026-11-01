@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "algorithm": "SHA-256",
   "lineEndings": "LF",
   "excludes": [
@@ -30,8 +30,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "9e056c4eec05fcc49f08251c438edc3f11624c630b31fc520de33d2d0f27009e",
-      "bytes": 16050
+      "sha256": "ef27dba1092eadf6d9b73b8068feab07eda1a3f30cc81ea02c25b610317d9e0b",
+      "bytes": 18450
     },
     {
       "path": "LICENSE",
@@ -40,8 +40,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "8ce249d6f18272b322ebca83dd9d0b3704b712d151b4316b78caf88de9b2780a",
-      "bytes": 10429
+      "sha256": "e1a2c0d7f255005db889a692c339c5b45063957e25fffde495fb0d5df7a701c1",
+      "bytes": 10763
     },
     {
       "path": "THIRD-PARTY.md",
@@ -50,12 +50,12 @@
     },
     {
       "path": "VALIDATION.md",
-      "sha256": "72cbb054cb0033db431ecd8d3894d00dedb6e86170313b40794c192fc09b453e",
-      "bytes": 16413
+      "sha256": "53f509dda5e5bd1a01f2ec273534b5933e63ab59e6b981b8837f499b929b49d8",
+      "bytes": 17779
     },
     {
       "path": "VERSION",
-      "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989",
+      "sha256": "77123b8e4bdbd54505bf6e8021527ac60281602a06fe307564532c4dba39dbca",
       "bytes": 6
     },
     {
@@ -95,13 +95,13 @@
     },
     {
       "path": "docs/dst.html",
-      "sha256": "48f70b0ec569459d0043f57b2ef18f30cbd469ffb4b31f058788c77eefc02aa3",
-      "bytes": 84878
+      "sha256": "88833c1878da16167bed65c965fdb952f413f9ab96c56468e6dacbbf79d5a536",
+      "bytes": 84923
     },
     {
       "path": "docs/index.html",
-      "sha256": "0c01af1c2954db518939f82cb1cc28dca561b6ced37a390139bd7d6b9530ce84",
-      "bytes": 81570
+      "sha256": "9e831f44cf7275fadf2bce635d6501d66feff98a9220457ab117626cce0a8cf7",
+      "bytes": 91844
     },
     {
       "path": "docs/setup.svg",
@@ -110,8 +110,8 @@
     },
     {
       "path": "docs/v-rising.html",
-      "sha256": "4982b6ac5244a8669cda45772b90613476b3fe3a2c7233bd675fa503680f580a",
-      "bytes": 86114
+      "sha256": "aef6a1e2e2737617762f4246880b35263f2a2601a33455c9076198144aca2102",
+      "bytes": 94943
     },
     {
       "path": "games/dst/handler.patch",
@@ -135,8 +135,8 @@
     },
     {
       "path": "games/v-rising/FINDINGS.md",
-      "sha256": "d3bddeaa0b4c7e516cad2e8bd0b97113e42f4c67506265e148716eb46c69c009",
-      "bytes": 10682
+      "sha256": "b65f5c945cfe9ed666ad7dc1746b763e971e4eca171c81133f00f2f94e32cfe6",
+      "bytes": 12381
     },
     {
       "path": "games/v-rising/Start-VRising-Coop.cmd",
@@ -165,8 +165,8 @@
     },
     {
       "path": "games/v-rising/status.json",
-      "sha256": "8ea2e67a75e8748c07af551287d1e87d4030a9687cff5d3ec397801478ddd74e",
-      "bytes": 4724
+      "sha256": "313b69306000578dd4b2107c6a3d4bbb94dba85702163182e308c2ff22037abb",
+      "bytes": 5324
     },
     {
       "path": "setup.example.json",
@@ -253,7 +253,5 @@
       "sha256": "d7c6ac27f400eb0123ff14716c276b8672e088b507c779d3e2fc79ea1b12235c",
       "bytes": 3937
     }
-  ],
-  "documentationRevision": "unreleased-findings-2026-11-01",
-  "releaseBaseline": "v1.1.1"
+  ]
 }

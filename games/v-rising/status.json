@@ -18,7 +18,7 @@
     "secondWindowResize": "verified_both_directions_and_full_monitor_on_new_session"
   },
   "bridge": "v5; unchanged during game settings and audio fixes",
-  "updatedOn": "2026-10-31",
+  "updatedOn": "2026-11-01",
   "publishedPatch": "Final verified local handler adapted to portable BaseDirectory; source and fixture validation included.",
   "audioInstruction": {
     "location": "Inside each game: Settings > Sound > scroll down > Miscellaneous > Sound Card",
@@ -47,7 +47,7 @@
     "Internal stale connection cause after crash unproven; clean restart workaround verified",
     "Portable package tested in fixtures; full gameplay on a different PC needs its own verification"
   ],
-  "documentationRelease": "1.1.1",
+  "documentationRelease": "1.1.2",
   "controllerRecovery": {
     "date": "2026-11-01",
     "status": "two_virtual_controllers_restored_verified_after_steam_restart",
@@ -58,18 +58,21 @@
       "Start Steam and verify both virtual controllers"
     ],
     "verification": "Game-agent evidence and user confirmation; two PnP Xbox 360, XInput 0/1, unchanged mapping hash. Base read saved evidence.",
-    "gameplayAfterRecovery": "Not yet retested by agent",
+    "gameplayAfterRecovery": "Subsequent same-world entry of both saved V Rising characters verified under currentNetworkIncident. The controller recovery check itself established two XInput; no separate fresh full input/audio test is claimed.",
     "guide": "../../docs/v-rising.html#controller-recovery",
     "cause": "Original detection and license verification failures not established; no proven Steam Input conflict."
   },
   "currentNetworkIncident": {
     "date": "2026-11-01",
-    "status": "investigating_clean_restart_in_progress",
+    "status": "recovery_verified_both_saved_characters_and_new_autosave",
     "observed": "Fresh session: server loaded existing world; Player2 joined; Player1 remained Connecting for at least five minutes. No preceding server crash.",
     "evidence": "Game-agent report and private evidence reviewed; raw logs not published.",
-    "cause": "Unproven; not limited to post-crash retry. Raw Input messages in both clients do not prove asymmetric connection failure cause.",
+    "cause": "Unproven; not limited to post-crash retry. Early Player2 join, Steam and Raw Input not established as causes.",
     "preservation": "New autosave, full backup including .TEMP, normal Player2 exit then session shutdown.",
-    "attempt": "Clean Nucleus and same-world restart; wait for Player1 before joining Player2. Result not yet verified.",
-    "guide": "../../docs/v-rising.html#connection-status"
+    "attempt": "Complete Nucleus/client/server restart; same profile/mode/world; wait for Player1 world entry, then connect Player2.",
+    "guide": "../../docs/v-rising.html#connection-recovery",
+    "verification": "Both existing characters restored with HasLocalCharacter=True and ShouldCreateCharacter=False; new autosave completed. Game-agent and user confirmation; base read final saved logs.",
+    "loadingDistinction": "On successful retry Connecting screen remained while server was still loading and Player1 already had ConnectionUpdate Connected.",
+    "configurationChanged": false
   }
 }
