@@ -115,19 +115,20 @@
   "controllerRecurrence": {
     "date": "2026-11-01",
     "time": "18:27 Europe/Moscow",
-    "status": "open_one_XInput_power_cycle_failed",
+    "status": "physical_detection_restored_virtual_devices_blocked_by_license_error",
     "gamesRunning": false,
     "savedRemap": [
       true,
       true
     ],
-    "connectedXInput": [
-      0
-    ],
+    "connectedXInput": [],
     "observed": "Steam registered physical connection; only one virtual Xbox appeared. Profile and Slot1 unchanged.",
-    "failedAttempt": "User full power cycle of affected controller did not restore second virtual device.",
-    "nextSteps": "Game chat checking Steam closure and targeted existing-profile apply; no result claimed yet.",
+    "failedAttempt": "Power cycle failed; Steam closure and targeted apply returned success without second XInput. After guarded offline jlserv restart, both apply returned license error; normal-user retry also failed.",
+    "nextSteps": "Investigate licensing error; no complete recovery claimed yet.",
     "cause": "unproven; Steam conflict and relation to End not established",
-    "guide": "../../docs/v-rising.html#controller-recurrence-20261101"
+    "guide": "../../docs/v-rising.html#controller-recurrence-20261101",
+    "serviceRestarted": true,
+    "physicalDevicesRestored": true,
+    "virtualXboxCountAfterRestart": 0
   }
 }
