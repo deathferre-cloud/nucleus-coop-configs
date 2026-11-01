@@ -46,5 +46,20 @@
     "First LAN-enabled timeout root cause unproven",
     "Internal stale connection cause after crash unproven; clean restart workaround verified",
     "Portable package tested in fixtures; full gameplay on a different PC needs its own verification"
-  ]
+  ],
+  "documentationRelease": "1.1.1",
+  "controllerRecovery": {
+    "date": "2026-11-01",
+    "status": "two_virtual_controllers_restored_verified_after_steam_restart",
+    "steps": [
+      "Finish games; restart jlserv",
+      "User reactivates existing access if requested",
+      "Apply unchanged profile to both physical controllers on Slot1",
+      "Start Steam and verify both virtual controllers"
+    ],
+    "verification": "Game-agent evidence and user confirmation; two PnP Xbox 360, XInput 0/1, unchanged mapping hash. Base read saved evidence.",
+    "gameplayAfterRecovery": "Not yet retested by agent",
+    "guide": "../../docs/v-rising.html#controller-recovery",
+    "cause": "Original detection and license verification failures not established; no proven Steam Input conflict."
+  }
 }
