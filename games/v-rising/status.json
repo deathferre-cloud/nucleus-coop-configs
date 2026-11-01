@@ -1,5 +1,5 @@
 {
-  "status": "previous_configuration_verified_current_input_regression_open",
+  "status": "configured_manual_End_workaround_user_reverified",
   "steamAppId": "1604030",
   "testedBuild": "v1.1.13.0-r99712-b17",
   "handlerHubVersion": 6,
@@ -8,7 +8,7 @@
   "planned": "Released configuration; future changes require per-game verification.",
   "runtimeChecks": {
     "sameWorld": "verified_both_distinct_players_connected_and_gameplay_observed",
-    "twoControllers": "Historical independent gameplay verified; current cursor issue and second-device loss require retest.",
+    "twoControllers": "Historical independent gameplay and latest manual End cursor isolation reverified by user after both XInput restored.",
     "separateAudio": "user_confirmed_and_actual_sessions_verified_after_full_restart",
     "desktopSwitch": "verified_after_explicit_End_lock_wasLocked_true_to_false_then_both_windows_restored",
     "saveReload": "verified_normal_Player2_then_Player1_exit_latest_autosave_loaded_both_existing_characters_restored",
@@ -47,7 +47,7 @@
     "Internal stale connection cause after crash unproven; clean restart workaround verified",
     "Portable package tested in fixtures; full gameplay on a different PC needs its own verification"
   ],
-  "documentationRelease": "1.1.3",
+  "documentationRelease": "1.1.4",
   "controllerRecovery": {
     "date": "2026-11-01",
     "status": "two_virtual_controllers_restored_verified_after_steam_restart",
@@ -81,13 +81,13 @@
       "VR-016",
       "VR-017"
     ],
-    "status": "second_device_recovered_live_cursor_End_repeat_required",
-    "userReport": "Reported independent input after End; subsequent device loss overlapped that test.",
-    "agentVerified": "Bridge HIDE wasLocked=True nowLocked=False. Earlier passive sample showed two XInput streams; later only XInput0 remained.",
+    "status": "manual_End_workaround_user_reverified_second_device_recovered_live",
+    "userReport": "Both characters moved independently. Cursor crosstalk after A/RS was reproduced without End. User clarified the omission and confirmed it resolved after enabling End.",
+    "agentVerified": "Final snapshot has XInput0/1. Bridge HIDE wasLocked=False before clarification; after real End HIDE wasLocked=True nowLocked=False. Subsequent SHOW leaves unlocked.",
     "testProcedure": "Verify two working virtual devices, then End once after windows load and test each player. Ctrl+F10 releases input; after showing via Ctrl+F10/F9 it remains unlocked. End toggles.",
     "failedAttempts": "Targeted remap on and original-profile apply to second returned success and saved Remap=true but initially did not restore XInput1. The first reported power cycle also failed; later user power cycle restored it as recorded under liveRecovery.",
-    "limitations": "Input isolation needs a repeat with two active devices. Cause, Steam Input involvement and link to End unproven. Character movement transfer not confirmed.",
-    "currentRequirement": "Keep game running; live recovery now verified after targeted remap/apply and later user power cycle. End isolation retest still pending.",
+    "limitations": "Specific OS mouse event source, Steam Input involvement and long-term stability unproven. Character movement transfer not confirmed.",
+    "currentRequirement": "Manual End once after both windows load and after showing through Ctrl+F10/F9; no automatic relock implemented.",
     "runtimeChange": "Public handler Description text only; execution logic and common bridge unchanged.",
     "guide": "../../docs/v-rising.html#cursor-crosstalk",
     "liveRecovery": {
@@ -108,6 +108,7 @@
         "bothHadChangingPacketsAndLeftStick": true,
         "cursorIsolationProven": false
       }
-    }
+    },
+    "userVerificationDate": "2026-11-01"
   }
 }

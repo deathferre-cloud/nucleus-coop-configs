@@ -1,5 +1,5 @@
 {
-  "version": "1.1.3",
+  "version": "1.1.4",
   "algorithm": "SHA-256",
   "lineEndings": "LF",
   "excludes": [
@@ -30,8 +30,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "723421b83021006b8f95c7d533f9b87f554dc36560717a7416f3b531c9739045",
-      "bytes": 22394
+      "sha256": "615dc0e6debe64f07fbf8bd07b702803555001768e1f69f7f8583702d94c0874",
+      "bytes": 25187
     },
     {
       "path": "LICENSE",
@@ -40,8 +40,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "967091878dc418796331d8884f3de469d6e90c5c42c8a8396cb29c3eeb5353e2",
-      "bytes": 12251
+      "sha256": "afd52cff090e0792e49679ee90c4dff9fa4acaa14d6c6ed58066d32ee7b54c03",
+      "bytes": 12580
     },
     {
       "path": "THIRD-PARTY.md",
@@ -50,18 +50,18 @@
     },
     {
       "path": "VALIDATION.md",
-      "sha256": "17f2085b12936ce69b7ab0db760d1643f971eba1e0cf71466f399c18fe883091",
-      "bytes": 21010
+      "sha256": "cf549ce324f89f95caeed39e50913a2833f350b881b6ddfdccc768b2457b4973",
+      "bytes": 23099
     },
     {
       "path": "VERSION",
-      "sha256": "5dae0c0a5ed3cdaa78704e25bb38d72c31018311e933283d06ed4f93360bfc6c",
+      "sha256": "2bde3ae39f59ee21201f87089cf7d215cf58ea437711e3d8e3e65fbc3078c798",
       "bytes": 6
     },
     {
       "path": "common/FINDINGS.md",
-      "sha256": "51ce45e369ac02dc3d33df42f8accdd8a727981b2b904b4432869652da4a45b9",
-      "bytes": 8156
+      "sha256": "02283bba6848fce2ece804a4c6672807f8f40a191a87b1693877eae2ae902c8e",
+      "bytes": 8332
     },
     {
       "path": "common/rewasd/Steam Controller to Xbox 360.rewasd",
@@ -95,13 +95,13 @@
     },
     {
       "path": "docs/dst.html",
-      "sha256": "00990b63bd1aa6232d2c934f31dd8ae06243b37bebbf7019dc53276ae207f86e",
+      "sha256": "1f122d98eeb517c43d173b79a9419223cbff1aebda293a7efe8091b4b816196a",
       "bytes": 85028
     },
     {
       "path": "docs/index.html",
-      "sha256": "c7575f83a32b3689780104f316e5e3f0d004c4c8ffba8b97742aacac5982a7b2",
-      "bytes": 103499
+      "sha256": "00a00c690940396b1630e50d0ce6fee48c81a2be59cccbe2ef0f736a303279b8",
+      "bytes": 105920
     },
     {
       "path": "docs/setup.svg",
@@ -110,8 +110,8 @@
     },
     {
       "path": "docs/v-rising.html",
-      "sha256": "d665b9a2870a2165228127804dea6a9a3361afe3b1716eb6801ce81d01ba1223",
-      "bytes": 107155
+      "sha256": "01f028b5143a391739d25a11955d275542ef43e27e20eb69801a8b2aaef934c5",
+      "bytes": 109151
     },
     {
       "path": "games/dst/handler.patch",
@@ -135,8 +135,8 @@
     },
     {
       "path": "games/v-rising/FINDINGS.md",
-      "sha256": "051e2dcf3d9385b6638f21cb9fada20adcca3c4cbc2ebe2395ed09130eb75cad",
-      "bytes": 17222
+      "sha256": "ee001f86e03643d04afb0049d2205ce2b10f5c63701d0e95aac31a9f45bddbd3",
+      "bytes": 17921
     },
     {
       "path": "games/v-rising/Start-VRising-Coop.cmd",
@@ -145,8 +145,8 @@
     },
     {
       "path": "games/v-rising/handler.patch",
-      "sha256": "8e3244a2c1875c69fbc99303c834ef0c8fad19a53f47948e4ef543264033e5a2",
-      "bytes": 8166
+      "sha256": "336cf7ddbbe96a4848959fea81910de22ee119df62580bb846ff033b16b9e114",
+      "bytes": 8186
     },
     {
       "path": "games/v-rising/profile.reference.json",
@@ -165,8 +165,8 @@
     },
     {
       "path": "games/v-rising/status.json",
-      "sha256": "7f17bd7dd5d03519923f7b9b308b29042f048c7832d17e7238bffb22c4ca7b95",
-      "bytes": 7827
+      "sha256": "d1570fe1baff5bb23f69df84aa55dc0f107c08e30c2e41399db4bf950050a499",
+      "bytes": 7961
     },
     {
       "path": "setup.example.json",
