@@ -61,5 +61,15 @@
     "gameplayAfterRecovery": "Not yet retested by agent",
     "guide": "../../docs/v-rising.html#controller-recovery",
     "cause": "Original detection and license verification failures not established; no proven Steam Input conflict."
+  },
+  "currentNetworkIncident": {
+    "date": "2026-11-01",
+    "status": "investigating_clean_restart_in_progress",
+    "observed": "Fresh session: server loaded existing world; Player2 joined; Player1 remained Connecting for at least five minutes. No preceding server crash.",
+    "evidence": "Game-agent report and private evidence reviewed; raw logs not published.",
+    "cause": "Unproven; not limited to post-crash retry. Raw Input messages in both clients do not prove asymmetric connection failure cause.",
+    "preservation": "New autosave, full backup including .TEMP, normal Player2 exit then session shutdown.",
+    "attempt": "Clean Nucleus and same-world restart; wait for Player1 before joining Player2. Result not yet verified.",
+    "guide": "../../docs/v-rising.html#connection-status"
   }
 }

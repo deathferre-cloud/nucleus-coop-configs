@@ -25,13 +25,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "2d187541a821d3238baabd8627a74f68695f2b86855af726a06e920fc735f9d2",
-      "bytes": 2185
+      "sha256": "e8386dcfddd2eb9f0db89b58b276ff3d6fcc8584dc2d4ba7efda9fd5d599b758",
+      "bytes": 3310
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "5ef30913608c53de7cd5bf16b84fd7955f324bb17465674b12c13c760f1c3c48",
-      "bytes": 15235
+      "sha256": "9e056c4eec05fcc49f08251c438edc3f11624c630b31fc520de33d2d0f27009e",
+      "bytes": 16050
     },
     {
       "path": "LICENSE",
@@ -40,8 +40,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "adcd47275e1a3016d4dcaea351eddf9759108498f56200760b58e5528db8a67e",
-      "bytes": 9950
+      "sha256": "8ce249d6f18272b322ebca83dd9d0b3704b712d151b4316b78caf88de9b2780a",
+      "bytes": 10429
     },
     {
       "path": "THIRD-PARTY.md",
@@ -50,8 +50,8 @@
     },
     {
       "path": "VALIDATION.md",
-      "sha256": "ab9c768a74a3db6bf67cda131cef9617b04646dd804a1870f02f9e409117e013",
-      "bytes": 15711
+      "sha256": "72cbb054cb0033db431ecd8d3894d00dedb6e86170313b40794c192fc09b453e",
+      "bytes": 16413
     },
     {
       "path": "VERSION",
@@ -100,8 +100,8 @@
     },
     {
       "path": "docs/index.html",
-      "sha256": "dad1757d8be2ee12f2fe9fc3a8b1bdae527427cd37d82206c9eaf4e0a886129e",
-      "bytes": 79782
+      "sha256": "0c01af1c2954db518939f82cb1cc28dca561b6ced37a390139bd7d6b9530ce84",
+      "bytes": 81570
     },
     {
       "path": "docs/setup.svg",
@@ -110,8 +110,8 @@
     },
     {
       "path": "docs/v-rising.html",
-      "sha256": "04d68218d511427944b037fdd457b0eed8f8fe4867e1856831bacc4c35e9cac5",
-      "bytes": 84090
+      "sha256": "4982b6ac5244a8669cda45772b90613476b3fe3a2c7233bd675fa503680f580a",
+      "bytes": 86114
     },
     {
       "path": "games/dst/handler.patch",
@@ -135,8 +135,8 @@
     },
     {
       "path": "games/v-rising/FINDINGS.md",
-      "sha256": "e00cccc2bd36802592112b50c4d9caafef843293f246860ac1c00145de8563b7",
-      "bytes": 9549
+      "sha256": "d3bddeaa0b4c7e516cad2e8bd0b97113e42f4c67506265e148716eb46c69c009",
+      "bytes": 10682
     },
     {
       "path": "games/v-rising/Start-VRising-Coop.cmd",
@@ -165,8 +165,8 @@
     },
     {
       "path": "games/v-rising/status.json",
-      "sha256": "3a8c16eeffb71c07139119c5e86e8b91cffa96883621aad83a25154ee1687b44",
-      "bytes": 3919
+      "sha256": "8ea2e67a75e8748c07af551287d1e87d4030a9687cff5d3ec397801478ddd74e",
+      "bytes": 4724
     },
     {
       "path": "setup.example.json",
@@ -253,5 +253,7 @@
       "sha256": "d7c6ac27f400eb0123ff14716c276b8672e088b507c779d3e2fc79ea1b12235c",
       "bytes": 3937
     }
-  ]
+  ],
+  "documentationRevision": "unreleased-findings-2026-11-01",
+  "releaseBaseline": "v1.1.1"
 }
