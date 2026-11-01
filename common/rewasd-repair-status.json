@@ -1,0 +1,30 @@
+{
+  "version": "1.2.0",
+  "purpose": "Two Steam Controller 2015 through one supported USB receiver and two virtual Xbox 360 in slots0/1",
+  "script": "../tools/Repair-Rewasd.ps1",
+  "configExample": "../tools/Repair-Rewasd.example.json",
+  "privateConfig": "Repair-Rewasd.private.json, never publish",
+  "verification": {
+    "mockChecks": 42,
+    "shells": [
+      "5.1",
+      "7"
+    ],
+    "actualReadOnlyCheck": "Ready=true, two PnP Xbox and XInput0/1 while V Rising running",
+    "actualReceiverRecovery": "Game chat verified targeted reset then user power-on, result retained after Steam return",
+    "fullInteractiveShortcutOnNextRealFailure": "not_yet_tested"
+  },
+  "protections": [
+    "No service restart or activation change",
+    "No active-game receiver reset",
+    "Only one exact receiver, hubs and ambiguity rejected",
+    "Two distinct saved IDs and all paths validated",
+    "Worker completes before mutex release and Steam restore",
+    "Errors cannot report successful repair"
+  ],
+  "limitations": [
+    "Specific Steam Controller receiver hardware and XInput0/1 layout",
+    "Original detection/license causes not established",
+    "Long-term reliability unknown"
+  ]
+}

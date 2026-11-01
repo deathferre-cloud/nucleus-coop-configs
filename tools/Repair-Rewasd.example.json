@@ -1,0 +1,9 @@
+{
+  "CliPath": "C:\\Program Files\\reWASD\\reWASDCommandLine.exe",
+  "ProfilePath": "C:\\Users\\Public\\Documents\\reWASD\\Profiles\\Nucleus Co-op DST\\Controller\\Steam Controller to Xbox 360.rewasd",
+  "SteamPath": "C:\\Program Files (x86)\\Steam\\steam.exe",
+  "ControllerIds": [
+    "REPLACE_DEVICE_1",
+    "REPLACE_DEVICE_2"
+  ]
+}

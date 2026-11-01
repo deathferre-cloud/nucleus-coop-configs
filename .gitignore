@@ -6,3 +6,5 @@ build/
 *.exe
 *.dll
 __pycache__/
+*.private.json
+Repair-Rewasd-logs/

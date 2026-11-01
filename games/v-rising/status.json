@@ -1,5 +1,5 @@
 {
-  "status": "previous_gameplay_verified_controller_detection_recurrence_open",
+  "status": "configured_manual_End_verified_evening_controller_recovery_verified",
   "steamAppId": "1604030",
   "testedBuild": "v1.1.13.0-r99712-b17",
   "handlerHubVersion": 6,
@@ -47,7 +47,7 @@
     "Internal stale connection cause after crash unproven; clean restart workaround verified",
     "Portable package tested in fixtures; full gameplay on a different PC needs its own verification"
   ],
-  "documentationRelease": "1.1.4",
+  "documentationRelease": "1.2.0",
   "controllerRecovery": {
     "date": "2026-11-01",
     "status": "two_virtual_controllers_restored_verified_after_steam_restart",
@@ -111,24 +111,43 @@
     },
     "userVerificationDate": "2026-11-01"
   },
-  "documentationRevision": "unreleased-2026-11-01-evening",
   "controllerRecurrence": {
     "date": "2026-11-01",
     "time": "18:27 Europe/Moscow",
-    "status": "physical_detection_restored_virtual_devices_blocked_by_license_error",
+    "status": "recovered_after_receiver_restart_and_user_power_on",
     "gamesRunning": false,
     "savedRemap": [
       true,
       true
     ],
-    "connectedXInput": [],
+    "connectedXInput": [
+      0,
+      1
+    ],
     "observed": "Steam registered physical connection; only one virtual Xbox appeared. Profile and Slot1 unchanged.",
     "failedAttempt": "Power cycle failed; Steam closure and targeted apply returned success without second XInput. After guarded offline jlserv restart, both apply returned license error; normal-user retry also failed.",
-    "nextSteps": "Investigate licensing error; no complete recovery claimed yet.",
-    "cause": "unproven; Steam conflict and relation to End not established",
+    "nextSteps": "Full interactive repair shortcut flow on the next actual failure remains untested.",
+    "cause": "Original detection and license failures unproven; no proven Steam conflict.",
     "guide": "../../docs/v-rising.html#controller-recurrence-20261101",
     "serviceRestarted": true,
     "physicalDevicesRestored": true,
-    "virtualXboxCountAfterRestart": 0
+    "virtualXboxCountAfterRestart": 0,
+    "virtualXboxCountAfterRecovery": 2,
+    "recovery": "After user activation apply succeeded but second Xbox still absent. Targeted reset of one receiver switched controllers off; user powered both on, restoring both Xbox/XInput. Steam returned and result persisted.",
+    "helperGuide": "../../docs/v-rising.html#repair-rewasd-shortcut"
+  },
+  "repairHelper": {
+    "available": true,
+    "publicScript": "../../tools/Repair-Rewasd.ps1",
+    "publicTests": "../../tests/Test-RewasdRepair.ps1",
+    "staticAndMockChecks": 42,
+    "testedShells": [
+      "Windows PowerShell 5.1",
+      "PowerShell 7"
+    ],
+    "realCheckOnlyReady": true,
+    "fullInteractiveOfflineFlowOnNextFailure": "not_yet_tested",
+    "serviceAndActivationChanges": "none_by_helper",
+    "activeGameBehavior": "guidance_only_no_receiver_reset"
   }
 }
