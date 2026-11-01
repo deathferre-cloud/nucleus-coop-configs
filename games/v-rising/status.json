@@ -1,5 +1,5 @@
 {
-  "status": "configured_manual_End_workaround_user_reverified",
+  "status": "previous_gameplay_verified_controller_detection_recurrence_open",
   "steamAppId": "1604030",
   "testedBuild": "v1.1.13.0-r99712-b17",
   "handlerHubVersion": 6,
@@ -110,5 +110,24 @@
       }
     },
     "userVerificationDate": "2026-11-01"
+  },
+  "documentationRevision": "unreleased-2026-11-01-evening",
+  "controllerRecurrence": {
+    "date": "2026-11-01",
+    "time": "18:27 Europe/Moscow",
+    "status": "open_one_XInput_power_cycle_failed",
+    "gamesRunning": false,
+    "savedRemap": [
+      true,
+      true
+    ],
+    "connectedXInput": [
+      0
+    ],
+    "observed": "Steam registered physical connection; only one virtual Xbox appeared. Profile and Slot1 unchanged.",
+    "failedAttempt": "User full power cycle of affected controller did not restore second virtual device.",
+    "nextSteps": "Game chat checking Steam closure and targeted existing-profile apply; no result claimed yet.",
+    "cause": "unproven; Steam conflict and relation to End not established",
+    "guide": "../../docs/v-rising.html#controller-recurrence-20261101"
   }
 }
