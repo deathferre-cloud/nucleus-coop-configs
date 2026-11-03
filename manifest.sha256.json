@@ -30,8 +30,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "a7eaa391869abb71b6c022d413b07426fc0ab6540bd21c7a91746ac096b588a1",
-      "bytes": 35073
+      "sha256": "9d227e717e4782f8176133b8bd5f7ac8c1846085339f94aba37b0a7ccd5c3247",
+      "bytes": 37269
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "VALIDATION.md",
-      "sha256": "50813e328e91286d716c93c0f3535e7cb9572905d441cf8bf7d4c96820ca0499",
-      "bytes": 30315
+      "sha256": "0fa383f632f61883b01d914c19758dc3a62f1d77045136b455e73b49520f24ff",
+      "bytes": 32743
     },
     {
       "path": "VERSION",
@@ -60,8 +60,8 @@
     },
     {
       "path": "common/FINDINGS.md",
-      "sha256": "6295cefa0775ab7fca59f63bf70bd10070cc7d2ae89f8d62b88026173234934d",
-      "bytes": 16344
+      "sha256": "1193c1bbffae61320d5c9fea3e4fb9d776893efe8117455033a9e6a385c01041",
+      "bytes": 20221
     },
     {
       "path": "common/rewasd-repair-status.json",
@@ -105,8 +105,8 @@
     },
     {
       "path": "docs/index.html",
-      "sha256": "5f55db182efddc6e18ee6a013c4fdac45a1ac283983616d61160276a22e869cb",
-      "bytes": 137484
+      "sha256": "024213ceeb924338851844476b13d0e5a084600575e868c27233e35baa2afbac",
+      "bytes": 157578
     },
     {
       "path": "docs/setup.svg",
