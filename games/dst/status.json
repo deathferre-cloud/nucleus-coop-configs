@@ -38,10 +38,49 @@
     ],
     "physicalRetention": "verified_with_game_closed",
     "realRemapOn": "verified_with_game_closed",
-    "fullInteractiveLiveFlow": "deferred_by_user",
+    "fullInteractiveLiveFlow": "no_successful_in_world_flow; failure_observed_in_V_Rising_2026-11-03",
     "liveReceiverReset": "not_tested",
     "physicalInputProof": "A release/press/release on both XInput slots; not a per-character gameplay test",
     "activeGameBehavior": "remap_on_then_input_proof_optional_scoped_receiver_reset_with_retention_and_confirmation",
-    "serviceAndActivationChanges": "none_by_helper"
-  }
+    "serviceAndActivationChanges": "none_by_helper",
+    "currentStatus": "open_shared_helper_failure_observed_in_V_Rising_not_tested_in_DST"
+  },
+  "openHelperIncident": {
+    "reportedOn": "2026-11-03",
+    "status": "open_first_controller_missing_A_cancels_input_proof",
+    "observedIn": "V Rising",
+    "userReport": "First controller A cancels the helper; second controller A passes. Power cycle did not restore the first.",
+    "logEvidence": {
+      "presentXboxCount": 1,
+      "xinput0": false,
+      "xinput1": true,
+      "remapExitCodes": [
+        0,
+        0
+      ],
+      "proofPassed": false,
+      "proofCancelled": true,
+      "proofStages": [
+        0,
+        3
+      ],
+      "receiverReset": false,
+      "serviceRestarted": false,
+      "gameProcessIdentityPreserved": true
+    },
+    "cause": "Unknown: source of cancellation and initial device loss are separate unresolved questions.",
+    "remediation": "User changed plan from safe exit to keeping world running and restarting reWASD. After verified save backup and service restart, license verification failed again. User reactivated existing access and confirmed gameplay recovered. Base read two Xbox/XInput and unchanged original game process identities in final JSON. This verifies service-plus-user-activation route, not the v1.3.0 receiver-reset flow. A-cancel fix and new shortcut remain in preparation.",
+    "guide": "https://deathferre-cloud.github.io/nucleus-coop-configs/#repair-rewasd-cancel-20261103",
+    "subsequentAttempt": {
+      "source": "Game chat report after direct user steering",
+      "backup": "Full latest completed save backed up and verified by game chat",
+      "serviceRestart": "performed_by_game_chat",
+      "gameProcesses": "reported_unchanged",
+      "license": "verification_failed_then_user_reactivated_existing_access",
+      "recovery": "user_confirmed_in_game_and_two_XInput_with_original_game_processes",
+      "evidence": "Game-chat user-recovered.json and service-restart-live-result.json read by base",
+      "scope": "Separate service-restart route; not v1.3.0 receiver reset"
+    }
+  },
+  "documentationUpdatedOn": "2026-11-03"
 }

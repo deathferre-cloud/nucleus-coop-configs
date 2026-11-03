@@ -12,7 +12,7 @@
     ],
     "actualReadOnlyCheck": "Ready reflects virtual devices only; PhysicalInputVerified=false",
     "actualReceiverRecovery": "Historical 2026-11-01 with games closed: targeted reset then user power-on, retained after Steam return. New live reset with keep-virtual not tested.",
-    "fullInteractiveShortcutOnNextRealFailure": "deferred_by_user",
+    "fullInteractiveShortcutOnNextRealFailure": "attempt_failed_before_receiver_reset_2026-11-03",
     "physicalRetention": "Two Xbox/XInput0/1 remained after user powered off second physical controller, game closed",
     "realRemapOn": "Both exit0; processes and mapping hash unchanged, game closed",
     "liveReceiverReset": "not_yet_tested"
@@ -32,13 +32,52 @@
     "Original detection/license causes not established",
     "Long-term reliability unknown",
     "Live world recovery, receiver reset with retention and per-character assignment not yet verified",
-    "Original game-specific process names only; new games require adaptation and testing"
+    "Original game-specific process names only; new games require adaptation and testing",
+    "Actual first-controller A unexpectedly cancelled input proof; cause and fix pending"
   ],
-  "liveMode": "installed_and_mock_tested_gameplay_deferred_by_user",
+  "liveMode": "open_real_input_proof_cancellation_failure",
   "gameProcessCoverage": [
     "DST clients and dedicated servers",
     "V Rising clients and server"
   ],
   "selection": "Active game, explicit -LiveRepair or keep-virtual setting enabled",
-  "settingsPath": "Optional; empty uses current-user reWASD settings under ProgramData"
+  "settingsPath": "Optional; empty uses current-user reWASD settings under ProgramData",
+  "openHelperIncident": {
+    "reportedOn": "2026-11-03",
+    "status": "open_first_controller_missing_A_cancels_input_proof",
+    "observedIn": "V Rising",
+    "userReport": "First controller A cancels the helper; second controller A passes. Power cycle did not restore the first.",
+    "logEvidence": {
+      "presentXboxCount": 1,
+      "xinput0": false,
+      "xinput1": true,
+      "remapExitCodes": [
+        0,
+        0
+      ],
+      "proofPassed": false,
+      "proofCancelled": true,
+      "proofStages": [
+        0,
+        3
+      ],
+      "receiverReset": false,
+      "serviceRestarted": false,
+      "gameProcessIdentityPreserved": true
+    },
+    "cause": "Unknown: source of cancellation and initial device loss are separate unresolved questions.",
+    "remediation": "User changed plan from safe exit to keeping world running and restarting reWASD. After verified save backup and service restart, license verification failed again. User reactivated existing access and confirmed gameplay recovered. Base read two Xbox/XInput and unchanged original game process identities in final JSON. This verifies service-plus-user-activation route, not the v1.3.0 receiver-reset flow. A-cancel fix and new shortcut remain in preparation.",
+    "guide": "https://deathferre-cloud.github.io/nucleus-coop-configs/#repair-rewasd-cancel-20261103",
+    "subsequentAttempt": {
+      "source": "Game chat report after direct user steering",
+      "backup": "Full latest completed save backed up and verified by game chat",
+      "serviceRestart": "performed_by_game_chat",
+      "gameProcesses": "reported_unchanged",
+      "license": "verification_failed_then_user_reactivated_existing_access",
+      "recovery": "user_confirmed_in_game_and_two_XInput_with_original_game_processes",
+      "evidence": "Game-chat user-recovered.json and service-restart-live-result.json read by base",
+      "scope": "Separate service-restart route; not v1.3.0 receiver reset"
+    }
+  },
+  "documentationUpdatedOn": "2026-11-03"
 }
