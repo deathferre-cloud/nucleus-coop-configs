@@ -30,8 +30,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "0577467aa67885b6383e4a2d94b85348fa3f2f0ea9fdf66c0319aeb5e2d0277c",
-      "bytes": 39409
+      "sha256": "4b462f863642c9c9b534c7fec7f3bd24071484bfe561e4be3cc295b166e7a9f1",
+      "bytes": 40656
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "VALIDATION.md",
-      "sha256": "d6465aaf74c3494823a71de193b7cf15cc8dca983a8347a72816ad639d692f29",
-      "bytes": 35839
+      "sha256": "7f2f7a028486cd142f9fa620ea8a601eedcb61c165cb1b81d1ac3005cca45eba",
+      "bytes": 37734
     },
     {
       "path": "VERSION",
@@ -60,8 +60,8 @@
     },
     {
       "path": "common/FINDINGS.md",
-      "sha256": "eb3bb95f30af859ac1cb4ba6dc46a3137c8bb754d733abc9ae96ef4391a29e5f",
-      "bytes": 25241
+      "sha256": "f9c3fd52077914989ae6fbdb1ba030846c2991d6a28767e7c0d45cb2e93feb30",
+      "bytes": 29018
     },
     {
       "path": "common/rewasd-repair-status.json",
@@ -105,8 +105,8 @@
     },
     {
       "path": "docs/index.html",
-      "sha256": "96c36e898f15ba70985f20611dd3d43441b1a3fcf6e12829ad6bf14cf76eeaad",
-      "bytes": 175705
+      "sha256": "08c43b6406a341593a4f0a3fc2dd75210e7149fe92341ddee76363e2fdf765e0",
+      "bytes": 189147
     },
     {
       "path": "docs/setup.svg",
@@ -115,8 +115,8 @@
     },
     {
       "path": "docs/v-rising.html",
-      "sha256": "7d2dc6cbefec1ebc052f2a55a103080d6d790ec9f5d98a9faff8cc841597f66e",
-      "bytes": 156309
+      "sha256": "1828fee5e1c9b1feef3c1bf5f69c19fb9af924927621a5487a40b3cad85e8bd6",
+      "bytes": 169896
     },
     {
       "path": "games/dst/handler.patch",
@@ -140,8 +140,8 @@
     },
     {
       "path": "games/v-rising/FINDINGS.md",
-      "sha256": "ac29d9079e14c49ecc5cff7d443abe35f35b56ec3000f731c377e9e3fe2c437e",
-      "bytes": 30898
+      "sha256": "01f7ea4749be4b305064b4d026e915c02f1da17b2d45761bae99450fe1675cac",
+      "bytes": 34591
     },
     {
       "path": "games/v-rising/Start-VRising-Coop.cmd",
