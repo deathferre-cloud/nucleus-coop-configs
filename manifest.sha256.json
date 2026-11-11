@@ -30,8 +30,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "bc3f2206e9e4d73d6b4e59ec89baeb28d4324c3f68ced3b7354670b60b944cd5",
-      "bytes": 48777
+      "sha256": "0bc1298bba59f209e52a0ae5c8c7cf4846f8f48a5d7ba701eb7aeb1e33fb2c28",
+      "bytes": 49813
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "VALIDATION.md",
-      "sha256": "d1acd8d1243ed68399bfbdf9bd84009dbc6517d7eb5b0127232ed25132b25a87",
-      "bytes": 47534
+      "sha256": "b579d927e6cf5a60f5d93545937558c75daa38fea6eef5a6902cdd1296485155",
+      "bytes": 48649
     },
     {
       "path": "VERSION",
@@ -60,8 +60,8 @@
     },
     {
       "path": "common/FINDINGS.md",
-      "sha256": "b9795e4c08c7262838b6d5c6ab98655f7f2f4913a91744223adb1465707678e9",
-      "bytes": 49812
+      "sha256": "9df881244a9f33ec94c903fd4eb12e85b1f99616a9712cc0b2962d656b140d48",
+      "bytes": 52117
     },
     {
       "path": "common/rewasd-repair-status.json",
@@ -100,13 +100,13 @@
     },
     {
       "path": "docs/dst.html",
-      "sha256": "56bc229b2dec40f5961050b769455a23ec9d24e67d47dc1be75c4ecaa5c895e9",
-      "bytes": 153996
+      "sha256": "12e3a02a8a11bcdd5b378ffe97073935a648cd89de96d3d6d03fec20e3ea4b72",
+      "bytes": 159062
     },
     {
       "path": "docs/index.html",
-      "sha256": "5bb4ea8fbb5fff60956395e84852ddfa408ce61473d3bed25f0b35a3636505ea",
-      "bytes": 274767
+      "sha256": "10f1726e4738418ff88b59096e4bb82835088de6919c1593f24edbc4d1296d27",
+      "bytes": 279918
     },
     {
       "path": "docs/setup.svg",
@@ -115,8 +115,8 @@
     },
     {
       "path": "docs/v-rising.html",
-      "sha256": "bce870b3221a89a81b4b9ead86a860f3b161a32c16ee698dfad9a9de78c9c53f",
-      "bytes": 254044
+      "sha256": "88a87e3e0039513c3a18065f0a4c2b9c5ea39a72dea15e3af4860e4e0f781bc4",
+      "bytes": 259195
     },
     {
       "path": "games/dst/handler.patch",
@@ -140,8 +140,8 @@
     },
     {
       "path": "games/v-rising/FINDINGS.md",
-      "sha256": "c1f25828ad33cc750269642257f4c2016d23fb630fcdb0e85f7a2abc027f2e74",
-      "bytes": 54827
+      "sha256": "3d7ce89e4c68e62a5493a8623c5ac0e758f2833ec89213fddfb4e70b0f2f60b2",
+      "bytes": 57138
     },
     {
       "path": "games/v-rising/Start-VRising-Coop.cmd",
